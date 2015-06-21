@@ -1,0 +1,49 @@
+#### `.gitignore`
+# Xcode noise
+*.mode1v3
+*.pbxuser
+*.perspective
+*.perspectivev3
+*.mode1v3
+*.mode2v3
+
+# Xcode 4 noise
+*.xcodeproj/project.xcworkspace/*
+*.xcodeproj/xcuserdata/*
+*xcschememanagement.plist
+
+# osx noise
+.DS_Store
+profile
+.fseventsd
+
+# Vim swap files
+*.swp
+
+# Ctags file
+tags
+.idea/*
+atlassian-ide-plugin.xml
+
+# Calabash
+calabash.framework
+.irb-history
+
+# CI
+build/*
+build-test/*
+xcodebuild.log
+Injections/*
+test-reports/*
+coverage.info
+coverage.xml
+acceptance-coverage.xml
+lcov-reports/*
+clang-reports/*
+oclint-reports/*
+oclint.xml
+compile_commands.json
+line-count.sc
+ocstyle-reports/*
+ocstyle.txt
+ocstyle.html

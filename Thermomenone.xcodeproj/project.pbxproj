@@ -1,0 +1,439 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DA2252DE1B3676B70049C809 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2252DD1B3676B70049C809 /* main.m */; };
+		DA2252E11B3676B70049C809 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2252E01B3676B70049C809 /* AppDelegate.m */; };
+		DA2252E41B3676B70049C809 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2252E31B3676B70049C809 /* MasterViewController.m */; };
+		DA2252E71B3676B70049C809 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2252E61B3676B70049C809 /* DetailViewController.m */; };
+		DA2252EA1B3676B70049C809 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2252E81B3676B70049C809 /* Main.storyboard */; };
+		DA2252EC1B3676B70049C809 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA2252EB1B3676B70049C809 /* Images.xcassets */; };
+		DA2252EF1B3676B70049C809 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA2252ED1B3676B70049C809 /* LaunchScreen.xib */; };
+		DA2252FB1B3676B70049C809 /* ThermomenoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2252FA1B3676B70049C809 /* ThermomenoneTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DA2252F51B3676B70049C809 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA2252D01B3676B70049C809 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA2252D71B3676B70049C809;
+			remoteInfo = Thermomenone;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DA2252D81B3676B70049C809 /* Thermomenone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thermomenone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA2252DC1B3676B70049C809 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA2252DD1B3676B70049C809 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DA2252DF1B3676B70049C809 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DA2252E01B3676B70049C809 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DA2252E21B3676B70049C809 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		DA2252E31B3676B70049C809 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		DA2252E51B3676B70049C809 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		DA2252E61B3676B70049C809 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		DA2252E91B3676B70049C809 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DA2252EB1B3676B70049C809 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DA2252EE1B3676B70049C809 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		DA2252F41B3676B70049C809 /* ThermomenoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThermomenoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA2252F91B3676B70049C809 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA2252FA1B3676B70049C809 /* ThermomenoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThermomenoneTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DA2252D51B3676B70049C809 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA2252F11B3676B70049C809 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DA2252CF1B3676B70049C809 = {
+			isa = PBXGroup;
+			children = (
+				DA2252DA1B3676B70049C809 /* Thermomenone */,
+				DA2252F71B3676B70049C809 /* ThermomenoneTests */,
+				DA2252D91B3676B70049C809 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DA2252D91B3676B70049C809 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA2252D81B3676B70049C809 /* Thermomenone.app */,
+				DA2252F41B3676B70049C809 /* ThermomenoneTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA2252DA1B3676B70049C809 /* Thermomenone */ = {
+			isa = PBXGroup;
+			children = (
+				DA2252DF1B3676B70049C809 /* AppDelegate.h */,
+				DA2252E01B3676B70049C809 /* AppDelegate.m */,
+				DA2252E21B3676B70049C809 /* MasterViewController.h */,
+				DA2252E31B3676B70049C809 /* MasterViewController.m */,
+				DA2252E51B3676B70049C809 /* DetailViewController.h */,
+				DA2252E61B3676B70049C809 /* DetailViewController.m */,
+				DA2252E81B3676B70049C809 /* Main.storyboard */,
+				DA2252EB1B3676B70049C809 /* Images.xcassets */,
+				DA2252ED1B3676B70049C809 /* LaunchScreen.xib */,
+				DA2252DB1B3676B70049C809 /* Supporting Files */,
+			);
+			path = Thermomenone;
+			sourceTree = "<group>";
+		};
+		DA2252DB1B3676B70049C809 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DA2252DC1B3676B70049C809 /* Info.plist */,
+				DA2252DD1B3676B70049C809 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DA2252F71B3676B70049C809 /* ThermomenoneTests */ = {
+			isa = PBXGroup;
+			children = (
+				DA2252FA1B3676B70049C809 /* ThermomenoneTests.m */,
+				DA2252F81B3676B70049C809 /* Supporting Files */,
+			);
+			path = ThermomenoneTests;
+			sourceTree = "<group>";
+		};
+		DA2252F81B3676B70049C809 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DA2252F91B3676B70049C809 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA2252D71B3676B70049C809 /* Thermomenone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA2252FE1B3676B70049C809 /* Build configuration list for PBXNativeTarget "Thermomenone" */;
+			buildPhases = (
+				DA2252D41B3676B70049C809 /* Sources */,
+				DA2252D51B3676B70049C809 /* Frameworks */,
+				DA2252D61B3676B70049C809 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Thermomenone;
+			productName = Thermomenone;
+			productReference = DA2252D81B3676B70049C809 /* Thermomenone.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DA2252F31B3676B70049C809 /* ThermomenoneTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA2253011B3676B70049C809 /* Build configuration list for PBXNativeTarget "ThermomenoneTests" */;
+			buildPhases = (
+				DA2252F01B3676B70049C809 /* Sources */,
+				DA2252F11B3676B70049C809 /* Frameworks */,
+				DA2252F21B3676B70049C809 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA2252F61B3676B70049C809 /* PBXTargetDependency */,
+			);
+			name = ThermomenoneTests;
+			productName = ThermomenoneTests;
+			productReference = DA2252F41B3676B70049C809 /* ThermomenoneTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA2252D01B3676B70049C809 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = Hovercraft;
+				TargetAttributes = {
+					DA2252D71B3676B70049C809 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					DA2252F31B3676B70049C809 = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = DA2252D71B3676B70049C809;
+					};
+				};
+			};
+			buildConfigurationList = DA2252D31B3676B70049C809 /* Build configuration list for PBXProject "Thermomenone" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DA2252CF1B3676B70049C809;
+			productRefGroup = DA2252D91B3676B70049C809 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA2252D71B3676B70049C809 /* Thermomenone */,
+				DA2252F31B3676B70049C809 /* ThermomenoneTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DA2252D61B3676B70049C809 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA2252EA1B3676B70049C809 /* Main.storyboard in Resources */,
+				DA2252EF1B3676B70049C809 /* LaunchScreen.xib in Resources */,
+				DA2252EC1B3676B70049C809 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA2252F21B3676B70049C809 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA2252D41B3676B70049C809 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA2252E11B3676B70049C809 /* AppDelegate.m in Sources */,
+				DA2252E41B3676B70049C809 /* MasterViewController.m in Sources */,
+				DA2252DE1B3676B70049C809 /* main.m in Sources */,
+				DA2252E71B3676B70049C809 /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA2252F01B3676B70049C809 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA2252FB1B3676B70049C809 /* ThermomenoneTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DA2252F61B3676B70049C809 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA2252D71B3676B70049C809 /* Thermomenone */;
+			targetProxy = DA2252F51B3676B70049C809 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DA2252E81B3676B70049C809 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA2252E91B3676B70049C809 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DA2252ED1B3676B70049C809 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA2252EE1B3676B70049C809 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DA2252FC1B3676B70049C809 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DA2252FD1B3676B70049C809 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DA2252FF1B3676B70049C809 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Thermomenone/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DA2253001B3676B70049C809 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Thermomenone/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DA2253021B3676B70049C809 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ThermomenoneTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Thermomenone.app/Thermomenone";
+			};
+			name = Debug;
+		};
+		DA2253031B3676B70049C809 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ThermomenoneTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Thermomenone.app/Thermomenone";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA2252D31B3676B70049C809 /* Build configuration list for PBXProject "Thermomenone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA2252FC1B3676B70049C809 /* Debug */,
+				DA2252FD1B3676B70049C809 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA2252FE1B3676B70049C809 /* Build configuration list for PBXNativeTarget "Thermomenone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA2252FF1B3676B70049C809 /* Debug */,
+				DA2253001B3676B70049C809 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DA2253011B3676B70049C809 /* Build configuration list for PBXNativeTarget "ThermomenoneTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA2253021B3676B70049C809 /* Debug */,
+				DA2253031B3676B70049C809 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DA2252D01B3676B70049C809 /* Project object */;
+}
