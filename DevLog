@@ -1,0 +1,13 @@
+DevLog
+
+The app pulls data from a single source. It should handle background updates so that relevant data is present whenever the user opens the app, even if they're in a mobile dead zone. I don't think there's a need to use Core Data since the data structure provided is pretty simple and uninteractive.
+
+I'm not experience with AutoLayout or Storyboards, but since they're requirements we'll take a stab at it. A Master-Detail template seems like the best way to get started rather than building one from scratch. We can innovate in the 'detail' view.
+
+We'll start with building the model.
+
+-
+
+Took a really long time to built the TM_Venue class, which I'm going to blame on a) using swift, b) optionals being a bit odd and c) a misplaced underscore.
+
+I think I'll add an init class to it that causes it to build from dictionary and it'll be fine. This'll be enough to start loading things into the tableView. I considered splitting the 'country' stuff out, and having a data model of Countries containing Venues containing associated weather data. Might do that when I'm cludging together code to grab and store data.
