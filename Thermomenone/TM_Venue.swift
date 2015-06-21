@@ -8,7 +8,26 @@
 
 import Foundation
 
-public enum TM_CompassDirection {
+public enum TM_Venue_ManifestKey: String {
+    case venueID = "_venueID"
+    case venueName = "_name"
+    case country = "country"
+    case weatherCondition = "_weatherCondition"
+    case weatherConditionIcon = "_weatherConditionIcon"
+    case weatherWind = "_weatherWind"
+    case weatherHumidity = "_weatherHumidity"
+    case weatherTemp = "_weatherTemp"
+    case weatherFeelsLike = "_weatherFeelsLike"
+    case weatherLastUpdated = "_weatherLastUpdated"
+}
+
+public enum TM_CountryKey: String {
+    case countryID = "_countryID"
+    case countryName = "_name"
+}
+
+@objc public enum TM_CompassDirection: Int {
+    case None = -1
     case North
     case NNE
     case NE
