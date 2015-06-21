@@ -55,12 +55,36 @@
     XCTAssert([riverVenue.venueName isEqualToString:venueName]);
     XCTAssert([riverVenue.weatherCondition isEqualToString:@"Partly Cloudy"]);
     XCTAssert([riverVenue.weatherConditionIcon isEqualToString:@"partlycloudy"]);
-    XCTAssert(riverVenue.weatherWindDirection == TM_CompassDirectionESE);
+    XCTAssert([riverVenue.weatherWindDirection isEqualToString:@"ESE"]);
     XCTAssert(riverVenue.weatherWindSpeed.integerValue == 17);
     XCTAssert(riverVenue.weatherFeelsLike.integerValue == 34);
     XCTAssert(riverVenue.weatherTemp.integerValue == 27);
-    XCTAssert(riverVenue.weatherHumidity.doubleValue == 0.65);
-    XCTAssert([riverVenue.lastUpdated compare:[NSDate dateWithTimeIntervalSinceReferenceDate:1401666605]] == NSOrderedSame);
+    XCTAssert(riverVenue.weatherHumidity.doubleValue == 65);
+    XCTAssert([riverVenue.lastUpdated compare:[NSDate dateWithTimeIntervalSince1970:1401666605]] == NSOrderedSame);
+    
+    NSDictionary *colacVenueDictionary = @{
+                                           @"_venueID" : @102,
+                                           @"_name" : @"Colac",
+                                           @"_country" : @{
+                                                   @"_countryID" : @16,
+                                                   @"_name" : @"Australia"
+                                                   },
+                                           @"_sport" : @{
+                                                   @"_sportID" : @1,
+                                                   @"_description" : @"Horse Racing"
+                                                   },
+                                           };
+    
+    //Nothing should change since the name does not match the original.
+    XCTAssert([riverVenue.venueName isEqualToString:venueName]);
+    XCTAssert([riverVenue.weatherCondition isEqualToString:@"Partly Cloudy"]);
+    XCTAssert([riverVenue.weatherConditionIcon isEqualToString:@"partlycloudy"]);
+    XCTAssert([riverVenue.weatherWindDirection isEqualToString:@"ESE"]);
+    XCTAssert(riverVenue.weatherWindSpeed.integerValue == 17);
+    XCTAssert(riverVenue.weatherFeelsLike.integerValue == 34);
+    XCTAssert(riverVenue.weatherTemp.integerValue == 27);
+    XCTAssert(riverVenue.weatherHumidity.doubleValue == 65);
+    XCTAssert([riverVenue.lastUpdated compare:[NSDate dateWithTimeIntervalSince1970:1401666605]] == NSOrderedSame);
     
     NSDictionary *shortRiverVenueDictionary = @{
                                                 @"_venueID" : @97,
@@ -78,42 +102,24 @@
     XCTAssert([riverVenue.venueName isEqualToString:venueName]);
     XCTAssert(!riverVenue.weatherConditionIcon);
     XCTAssert(!riverVenue.weatherCondition);
-    XCTAssert(riverVenue.weatherWindDirection == TM_CompassDirectionNone);
+    XCTAssert(!riverVenue.weatherWindDirection);
     XCTAssert(!riverVenue.weatherWindSpeed);
     XCTAssert(!riverVenue.weatherFeelsLike);
     XCTAssert(!riverVenue.weatherTemp);
     XCTAssert(!riverVenue.weatherHumidity);
-    
-    //if the dictionary doesn't contain 'lastupdated', we should grab the current date instead. That should be after this static value.
-    XCTAssert([riverVenue.lastUpdated compare:[NSDate dateWithTimeIntervalSinceReferenceDate:1401666605]] == NSOrderedDescending);
+    XCTAssert(!riverVenue.lastUpdated);
 
-    NSDictionary *colacVenueDictionary = @{
-                                           @"_venueID" : @102,
-                                           @"_name" : @"Colac",
-                                           @"_country" : @{
-                                                   @"_countryID" : @16,
-                                                   @"_name" : @"Australia"
-                                                   },
-                                           @"_sport" : @{
-                                                   @"_sportID" : @1,
-                                                   @"_description" : @"Horse Racing"
-                                                   },
-                                           };
-    
-    //Should throw an exception since the name does not match the original.
-    XCTAssertThrows([riverVenue updateVenue:colacVenueDictionary]);
-  
     TM_Venue *colacVenue = [[TM_Venue alloc] initWithVenueName:@"Colac"];
     [colacVenue updateVenue:colacVenueDictionary];
     XCTAssert([colacVenue.venueName isEqualToString:@"Colac"]);
     XCTAssert(!colacVenue.weatherConditionIcon);
     XCTAssert(!colacVenue.weatherCondition);
-    XCTAssert(colacVenue.weatherWindDirection == TM_CompassDirectionNone);
+    XCTAssert(!colacVenue.weatherWindDirection);
     XCTAssert(!colacVenue.weatherWindSpeed);
     XCTAssert(!colacVenue.weatherFeelsLike);
     XCTAssert(!colacVenue.weatherTemp);
     XCTAssert(!colacVenue.weatherHumidity);
-    XCTAssert([colacVenue.lastUpdated compare:[NSDate dateWithTimeIntervalSinceReferenceDate:1401666605]] == NSOrderedDescending);
+    XCTAssert(!colacVenue.lastUpdated);
 }
 
 
