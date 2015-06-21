@@ -34,17 +34,21 @@ public class TM_Venue : NSObject {
         assert(count(venueName) > 0, "Empty String passed on TMVenue initializer");
         self.venueName = venueName;
     }
-    
-    public class func updateVenue(venueDictionary: Dictionary<String, AnyObject>) {
-    
-    }
 
+    public var country: String?
+    public var countryID: NSNumber?
     public var weatherCondition: String?
     public var weatherConditionIcon: String?
-    public var weatherWindDirection: TM_CompassDirection?
-    public var weatherWindSpeed: Int?
-    public var weatherHumidity: Int?
-    public var weatherTemp: Int?
-    public var weatherFeelsLike: Int?
+    public var weatherWindDirection: TM_CompassDirection = TM_CompassDirection.None
+    public var weatherWindSpeed: NSNumber?
+    public var weatherHumidity: NSNumber?
+    public var weatherTemp: NSNumber?
+    public var weatherFeelsLike: NSNumber?
     public var lastUpdated: NSDate?
+}
+
+extension TM_Venue {
+    public func updateVenue(venueDictionary: Dictionary<String, AnyObject>) {
+        
+    }
 }
