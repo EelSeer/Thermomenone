@@ -43,6 +43,7 @@
 		DA2252F41B3676B70049C809 /* ThermomenoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThermomenoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA2252F91B3676B70049C809 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA2252FA1B3676B70049C809 /* ThermomenoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThermomenoneTests.m; sourceTree = "<group>"; };
+		DA2253051B36771B0049C809 /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +67,7 @@
 		DA2252CF1B3676B70049C809 = {
 			isa = PBXGroup;
 			children = (
+				DA2253041B3677010049C809 /* Configuration */,
 				DA2252DA1B3676B70049C809 /* Thermomenone */,
 				DA2252F71B3676B70049C809 /* ThermomenoneTests */,
 				DA2252D91B3676B70049C809 /* Products */,
@@ -122,6 +124,14 @@
 				DA2252F91B3676B70049C809 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DA2253041B3677010049C809 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				DA2253051B36771B0049C809 /* Project.xcconfig */,
+			);
+			name = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +281,7 @@
 /* Begin XCBuildConfiguration section */
 		DA2252FC1B3676B70049C809 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA2253051B36771B0049C809 /* Project.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -315,6 +326,7 @@
 		};
 		DA2252FD1B3676B70049C809 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA2253051B36771B0049C809 /* Project.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
