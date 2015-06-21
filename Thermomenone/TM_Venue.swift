@@ -11,7 +11,7 @@ import Foundation
 public enum TM_Venue_ManifestKey: String {
     case venueID = "_venueID"
     case venueName = "_name"
-    case country = "country"
+    case country = "_country"
     case weatherCondition = "_weatherCondition"
     case weatherConditionIcon = "_weatherConditionIcon"
     case weatherWind = "_weatherWind"
@@ -28,10 +28,11 @@ public enum TM_CountryKey: String {
 
 public class TM_Venue : NSObject {
     public let venueName: String
-    
-    public init(venueName: String) {
+    public let venueID: Int
+    public init(venueName: String, venueID: Int) {
         assert(count(venueName) > 0, "Empty String passed on TMVenue initializer");
-        self.venueName = venueName;
+        self.venueName = venueName
+        self.venueID = venueID
     }
 
     public var country: String?
@@ -49,13 +50,29 @@ public class TM_Venue : NSObject {
 extension TM_Venue {
     
     public func updateVenue(venueDictionary: Dictionary<String, AnyObject>) {
-        //check that venue object is valid. we don't want to update at all if we got the wrong venue here.
+        //check that venue name and ID are correct. we don't want to update at all if we got the wrong venue here.
         if let v: String = manifestValueForKey(venueDictionary, key: TM_Venue_ManifestKey.venueName) {
             if v != self.venueName {
                 return
             }
         }
         
+        if let v: Int = manifestValueForKey(venueDictionary, key: TM_Venue_ManifestKey.venueID) {
+            if v != self.venueID {
+                return
+            }
+        }
+        
+        if let countryDictionary: Dictionary<String, AnyObject> = manifestValueForKey(venueDictionary, key: TM_Venue_ManifestKey.country) {
+            if let v: String = manifestValueForKey(countryDictionary, key: TM_CountryKey.countryName) {
+                if self.country == nil {
+                    self.country = v
+                } else if self.country != v {
+                    return
+                }
+            }
+        }
+
         if let v: NSNumber = manifestValueForKey(venueDictionary, key: TM_Venue_ManifestKey.weatherLastUpdated) {
             let lastUpdateDate = NSDate(timeIntervalSince1970: v.doubleValue)
             if self.lastUpdated == nil || lastUpdateDate.compare(self.lastUpdated!) == NSComparisonResult.OrderedAscending {
@@ -132,11 +149,20 @@ extension TM_Venue {
     
     private func manifestValueForKey<T>(dictionary: Dictionary<String, AnyObject>, key: TM_Venue_ManifestKey) -> T? {
         let k = key.rawValue
-        if let v = dictionary[k] as? T? {
+        return manifestValueForKey(dictionary, key: k)
+    }
+    
+    private func manifestValueForKey<T>(dictionary: Dictionary<String, AnyObject>, key: TM_CountryKey) -> T? {
+        let k = key.rawValue
+        return manifestValueForKey(dictionary, key: k)
+    }
+    
+    private func manifestValueForKey<T>(dictionary: Dictionary<String, AnyObject>, key: String) -> T? {
+        if let v = dictionary[key] as? T? {
             return v
         }
         // If the value is not nil, then assert it.
-        assert([k].self == nil, "Could not find value for \(k)")
+        assert([key].self == nil, "Could not find value for \(key)")
         return nil
     }
 }
