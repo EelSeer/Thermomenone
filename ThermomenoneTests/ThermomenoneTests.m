@@ -28,7 +28,7 @@
 - (void)testTMVenue {
     NSString *venueName = @"Adelaide River";
 
-    TM_Venue *riverVenue = [[TM_Venue alloc] initWithVenueName:venueName];
+    TM_Venue *riverVenue = [[TM_Venue alloc] initWithVenueName:venueName venueID:97];
     XCTAssert([riverVenue.venueName isEqualToString:venueName], "TM_Venue didn't have correct name on creation.");
     
     NSDictionary *riverVenueDictionary = @{
@@ -53,6 +53,8 @@
 
     [riverVenue updateVenue:riverVenueDictionary];
     XCTAssert([riverVenue.venueName isEqualToString:venueName]);
+    XCTAssert(riverVenue.venueID == 97);
+    XCTAssert([riverVenue.country isEqualToString:@"Australia"]);
     XCTAssert([riverVenue.weatherCondition isEqualToString:@"Partly Cloudy"]);
     XCTAssert([riverVenue.weatherConditionIcon isEqualToString:@"partlycloudy"]);
     XCTAssert([riverVenue.weatherWindDirection isEqualToString:@"ESE"]);
@@ -77,6 +79,8 @@
     
     //Nothing should change since the name does not match the original.
     XCTAssert([riverVenue.venueName isEqualToString:venueName]);
+    XCTAssert(riverVenue.venueID == 97);
+    XCTAssert([riverVenue.country isEqualToString:@"Australia"]);
     XCTAssert([riverVenue.weatherCondition isEqualToString:@"Partly Cloudy"]);
     XCTAssert([riverVenue.weatherConditionIcon isEqualToString:@"partlycloudy"]);
     XCTAssert([riverVenue.weatherWindDirection isEqualToString:@"ESE"]);
@@ -100,6 +104,7 @@
                                                 };
     [riverVenue updateVenue:shortRiverVenueDictionary];
     XCTAssert([riverVenue.venueName isEqualToString:venueName]);
+    XCTAssert([riverVenue.country isEqualToString:@"Australia"]);
     XCTAssert(!riverVenue.weatherConditionIcon);
     XCTAssert(!riverVenue.weatherCondition);
     XCTAssert(!riverVenue.weatherWindDirection);
@@ -109,9 +114,10 @@
     XCTAssert(!riverVenue.weatherHumidity);
     XCTAssert(!riverVenue.lastUpdated);
 
-    TM_Venue *colacVenue = [[TM_Venue alloc] initWithVenueName:@"Colac"];
+    TM_Venue *colacVenue = [[TM_Venue alloc] initWithVenueName:@"Colac" venueID:102];
     [colacVenue updateVenue:colacVenueDictionary];
     XCTAssert([colacVenue.venueName isEqualToString:@"Colac"]);
+    XCTAssert([riverVenue.country isEqualToString:@"Australia"]);
     XCTAssert(!colacVenue.weatherConditionIcon);
     XCTAssert(!colacVenue.weatherCondition);
     XCTAssert(!colacVenue.weatherWindDirection);
