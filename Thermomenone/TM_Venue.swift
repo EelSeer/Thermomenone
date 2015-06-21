@@ -48,6 +48,23 @@ public class TM_Venue : NSObject {
 
 extension TM_Venue {
     
+    func convertWindString(windString: String) -> (windDir: String?, windSpeed: Double?) {
+        let windTokens = windString.componentsSeparatedByString(" ")
+        var windSpeed : Double? = nil
+        var windDir : String? = nil
+        if count(windTokens) == 4 {
+            windDir = windTokens[1]
+            let speed = windTokens[3]
+            let kphrange = speed.rangeOfString("kph")
+            windSpeed = (speed.substringToIndex(kphrange!.startIndex) as NSString).doubleValue
+        }
+        if (windDir != nil && windSpeed != nil) {
+            return (windDir!, windSpeed!)
+        } else {
+            return (nil, nil)
+        }
+    }
+    
     public func updateVenue(venueDictionary: Dictionary<String, AnyObject>) {
         //check that venue object is valid. we don't want to update at all if we got the wrong venue here.
         if let v: String = TM_Venue.manifestValueForKey(venueDictionary, key: TM_Venue_ManifestKey.venueName) {
@@ -80,23 +97,9 @@ extension TM_Venue {
         }
         
         if let v: String = TM_Venue.manifestValueForKey(venueDictionary, key: TM_Venue_ManifestKey.weatherWind) {
-            let windTokens = v.componentsSeparatedByString(" ")
-            var speedVal : Double? = nil
-            var speedDir : String? = nil
-            if count(windTokens) == 4 {
-                speedDir = windTokens[1]
-                let speed = windTokens[3]
-                let kphrange = speed.rangeOfString("kph")
-                speedVal = (speed.substringToIndex(kphrange!.startIndex) as NSString).doubleValue
-            }
-            
-            if (speedVal != nil && speedDir != nil) {
-                self.weatherWindSpeed = speedVal!
-                self.weatherWindDirection = speedDir!
-            } else {
-                self.weatherWindDirection = nil
-                self.weatherWindSpeed = nil
-            }
+            let windvals = convertWindString(v)
+            self.weatherWindSpeed = windvals.windSpeed
+            self.weatherWindDirection = windvals.windDir
         } else {
             self.weatherWindDirection = nil
             self.weatherWindSpeed = nil
