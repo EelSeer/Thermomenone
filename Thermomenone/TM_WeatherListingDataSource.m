@@ -33,6 +33,7 @@ static NSString * const kCountryKey = @"_country";
 @implementation TM_WeatherListingDataSource
 
 - (instancetype)initWithDelegate:(id<TM_WeatherListingDataSourceDelegate>)delegate {
+    self = [super init];
     if (self) {
         _delegate = delegate;
     }
