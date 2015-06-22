@@ -13,10 +13,10 @@ static NSString * const kWeatherListingEndPoint = @"http://dnu5embx6omws.cloudfr
 static NSString * const kDataKey = @"data";
 
 static NSString * const kVenueIDKey = @"_venueID";
-static NSString * const kVenueNameKey = @"_venueName";
+static NSString * const kVenueNameKey = @"_name";
 
 static NSString * const kCountryIDKey = @"_countryID";
-static NSString * const kCountryNameKey = @"_countryName";
+static NSString * const kCountryNameKey = @"_name";
 static NSString * const kCountryKey = @"_country";
 
 @interface TM_WeatherListingDataSource ()
@@ -77,7 +77,7 @@ static NSString * const kCountryKey = @"_country";
         NSNumber *countryID = venueDictionary[kCountryKey][kCountryIDKey];
         TM_Country *country = countryDictionary[countryID];
         if (!country) {
-            NSString *countryName = venueDictionary[kCountryNameKey];
+            NSString *countryName = venueDictionary[kCountryKey][kCountryNameKey];
             if (countryName) {
                 country = [[TM_Country alloc] initWithCountryName:countryName countryID:countryID.integerValue];
             } else {
@@ -93,6 +93,7 @@ static NSString * const kCountryKey = @"_country";
         }
         [venue updateVenue:venueDictionary];
         country.venues[venueID] = venue;
+        countryDictionary[countryID] = country;
     }
     
     return [countryDictionary copy];
@@ -101,7 +102,7 @@ static NSString * const kCountryKey = @"_country";
 - (void)updateSearchResults {
     //not using sort descriptor yet. Just wanna test perf and feedfetcher.
     NSMutableArray *results = [NSMutableArray array];
-    for (TM_Country *country in self.countries) {
+    for (TM_Country *country in [self.countries allValues]) {
         for (TM_Venue *venue in [country.venues allValues]) {
             [results addObject:venue];
         }
