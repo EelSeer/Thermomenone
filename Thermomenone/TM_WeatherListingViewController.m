@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Hovercraft. All rights reserved.
 //
 
-#import "MasterViewController.h"
-#import "DetailViewController.h"
+#import "TM_WeatherListingViewController.h"
+#import "TM_WeatherDetailViewController.h"
 
 #import "TM_WeatherListingDataSource.h"
 #import "Thermomenone-Swift.h"
 
-@interface MasterViewController ()<TM_WeatherListingDataSourceDelegate, UIAlertViewDelegate, UISearchBarDelegate, UISearchResultsUpdating>
+@interface TM_WeatherListingViewController ()<TM_WeatherListingDataSourceDelegate, UIAlertViewDelegate, UISearchBarDelegate, UISearchResultsUpdating>
 
 @property (nonatomic, strong) NSArray *objects;
 @property (nonatomic, strong) NSArray *searchedObjects;
@@ -25,7 +25,11 @@
 
 @end
 
-@implementation MasterViewController
+@implementation TM_WeatherListingViewController
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -37,8 +41,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    self.detailViewController = (TM_WeatherDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(considerRefreshingData:)
+                                                 name:UIApplicationDidBecomeActiveNotification object:nil];
+    
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.searchController.searchResultsUpdater = self;
     self.searchController.dimsBackgroundDuringPresentation = NO;
@@ -53,13 +61,20 @@
     [self.dataSource downloadListings];
 }
 
+- (void)considerRefreshingData:(NSNotification *)notification {
+    NSDate *date = [NSDate date];
+    if (date.timeIntervalSince1970 - self.dataSource.lastUpdated.timeIntervalSince1970 > 300) {
+        [self.dataSource downloadListings];
+    }
+}
+
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSDate *object = self.objects[indexPath.row];
-        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
+        TM_WeatherDetailViewController *controller = (TM_WeatherDetailViewController *)[[segue destinationViewController] topViewController];
         [controller setDetailItem:object];
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;

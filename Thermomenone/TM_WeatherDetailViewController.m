@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Hovercraft. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "TM_WeatherDetailViewController.h"
 
-@interface DetailViewController ()
+@interface TM_WeatherDetailViewController ()
 
 @end
 
-@implementation DetailViewController
+@implementation TM_WeatherDetailViewController
 
 #pragma mark - Managing the detail item
 

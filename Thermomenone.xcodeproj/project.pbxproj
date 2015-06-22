@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		DA2252DE1B3676B70049C809 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2252DD1B3676B70049C809 /* main.m */; };
 		DA2252E11B3676B70049C809 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2252E01B3676B70049C809 /* AppDelegate.m */; };
-		DA2252E41B3676B70049C809 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2252E31B3676B70049C809 /* MasterViewController.m */; };
-		DA2252E71B3676B70049C809 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2252E61B3676B70049C809 /* DetailViewController.m */; };
+		DA2252E41B3676B70049C809 /* TM_WeatherListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2252E31B3676B70049C809 /* TM_WeatherListingViewController.m */; };
+		DA2252E71B3676B70049C809 /* TM_WeatherDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2252E61B3676B70049C809 /* TM_WeatherDetailViewController.m */; };
 		DA2252EA1B3676B70049C809 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2252E81B3676B70049C809 /* Main.storyboard */; };
 		DA2252EC1B3676B70049C809 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA2252EB1B3676B70049C809 /* Images.xcassets */; };
 		DA2252EF1B3676B70049C809 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA2252ED1B3676B70049C809 /* LaunchScreen.xib */; };
@@ -38,10 +38,10 @@
 		DA2252DD1B3676B70049C809 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DA2252DF1B3676B70049C809 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DA2252E01B3676B70049C809 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DA2252E21B3676B70049C809 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		DA2252E31B3676B70049C809 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		DA2252E51B3676B70049C809 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		DA2252E61B3676B70049C809 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		DA2252E21B3676B70049C809 /* TM_WeatherListingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TM_WeatherListingViewController.h; sourceTree = "<group>"; };
+		DA2252E31B3676B70049C809 /* TM_WeatherListingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TM_WeatherListingViewController.m; sourceTree = "<group>"; };
+		DA2252E51B3676B70049C809 /* TM_WeatherDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TM_WeatherDetailViewController.h; sourceTree = "<group>"; };
+		DA2252E61B3676B70049C809 /* TM_WeatherDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TM_WeatherDetailViewController.m; sourceTree = "<group>"; };
 		DA2252E91B3676B70049C809 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA2252EB1B3676B70049C809 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DA2252EE1B3676B70049C809 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -158,10 +158,10 @@
 			isa = PBXGroup;
 			children = (
 				DA2253641B36DB100049C809 /* Data Source */,
-				DA2252E21B3676B70049C809 /* MasterViewController.h */,
-				DA2252E31B3676B70049C809 /* MasterViewController.m */,
-				DA2252E51B3676B70049C809 /* DetailViewController.h */,
-				DA2252E61B3676B70049C809 /* DetailViewController.m */,
+				DA2252E21B3676B70049C809 /* TM_WeatherListingViewController.h */,
+				DA2252E31B3676B70049C809 /* TM_WeatherListingViewController.m */,
+				DA2252E51B3676B70049C809 /* TM_WeatherDetailViewController.h */,
+				DA2252E61B3676B70049C809 /* TM_WeatherDetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -279,11 +279,11 @@
 			files = (
 				DA2252E11B3676B70049C809 /* AppDelegate.m in Sources */,
 				DA22539F1B37E7BE0049C809 /* TM_WeatherListingDataSource.m in Sources */,
-				DA2252E41B3676B70049C809 /* MasterViewController.m in Sources */,
+				DA2252E41B3676B70049C809 /* TM_WeatherListingViewController.m in Sources */,
 				DA2252DE1B3676B70049C809 /* main.m in Sources */,
 				DA2253611B367BF80049C809 /* TM_Venue.swift in Sources */,
 				DA2253A21B37E7E10049C809 /* TM_WeatherListingSearchDescriptor.m in Sources */,
-				DA2252E71B3676B70049C809 /* DetailViewController.m in Sources */,
+				DA2252E71B3676B70049C809 /* TM_WeatherDetailViewController.m in Sources */,
 				DA2253A61B37F27B0049C809 /* TM_Country.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

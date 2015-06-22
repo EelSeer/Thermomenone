@@ -59,6 +59,7 @@ static NSString * const kCountryKey = @"_country";
             }
             
             self.countries = [self parseVenues:dictionary[kDataKey]];
+            self.lastUpdated = [NSDate date];
             [self updateSearchResults];
             self.downloadTask = nil;
         }];

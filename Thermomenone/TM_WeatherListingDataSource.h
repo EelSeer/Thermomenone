@@ -17,6 +17,8 @@
 - (void)downloadListings;
 - (void)updateSearchResultsWithDescriptor:(TM_WeatherListingSearchDescriptor *)searchDescriptor;
 
+@property (nonatomic, strong) NSDate *lastUpdated;
+
 @end
 
 @protocol TM_WeatherListingDataSourceDelegate <NSObject>
