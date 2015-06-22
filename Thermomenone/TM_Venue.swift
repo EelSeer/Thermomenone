@@ -52,7 +52,7 @@ extension TM_Venue {
     public func updateVenue(venueDictionary: Dictionary<String, AnyObject>) {
         //check that venue name and ID are correct. we don't want to update at all if we got the wrong venue here.
         if let v: String = manifestValueForKey(venueDictionary, key: TM_Venue_ManifestKey.venueName) {
-            if v != self.venueName {
+            if self.venueName != v {
                 return
             }
         }
