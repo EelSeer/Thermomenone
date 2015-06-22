@@ -21,7 +21,7 @@
 
 @protocol TM_WeatherListingDataSourceDelegate <NSObject>
 
-- (void)weatherListingDataSource:(TM_WeatherListingDataSource *)dataSource didUpdateSearchResult:(NSMutableArray *)result;
+- (void)weatherListingDataSource:(TM_WeatherListingDataSource *)dataSource didUpdateSearchResult:(NSArray *)result;
 - (void)weatherListingDataSource:(TM_WeatherListingDataSource *)dataSource didFailToUpdateDataWithError:(NSError *)error;
 
 @end

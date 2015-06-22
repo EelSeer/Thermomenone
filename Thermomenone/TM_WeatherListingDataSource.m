@@ -104,11 +104,14 @@ static NSString * const kCountryKey = @"_country";
     NSMutableArray *results = [NSMutableArray array];
     for (TM_Country *country in [self.countries allValues]) {
         for (TM_Venue *venue in [country.venues allValues]) {
+       
             [results addObject:venue];
         }
     }
-    
-    [self.delegate weatherListingDataSource:self didUpdateSearchResult:results];
+    NSArray *result = [results sortedArrayUsingComparator:^NSComparisonResult(TM_Venue *obj1, TM_Venue *obj2) {
+        return [obj1.venueName compare:obj2.venueName];
+    }];
+    [self.delegate weatherListingDataSource:self didUpdateSearchResult:result];
 }
 
 - (void)setSearchDescriptor:(TM_WeatherListingSearchDescriptor *)searchDescriptor {

@@ -14,7 +14,7 @@
 
 @interface MasterViewController ()<TM_WeatherListingDataSourceDelegate, UIAlertViewDelegate>
 
-@property NSMutableArray *objects;
+@property (nonatomic, strong) NSArray *objects;
 @property (nonatomic, strong) TM_WeatherListingDataSource *dataSource;
 @property (nonatomic, strong) UIAlertView *alert;
 @end
