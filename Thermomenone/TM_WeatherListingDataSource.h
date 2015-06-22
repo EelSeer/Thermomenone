@@ -15,7 +15,7 @@
 
 - (instancetype)initWithDelegate:(id<TM_WeatherListingDataSourceDelegate>)delegate;
 - (void)downloadListings;
-- (void)setSearchDescriptor:(TM_WeatherListingSearchDescriptor *)searchDescriptor;
+- (void)updateSearchResultsWithDescriptor:(TM_WeatherListingSearchDescriptor *)searchDescriptor;
 
 @end
 

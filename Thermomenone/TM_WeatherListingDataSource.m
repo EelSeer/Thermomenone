@@ -114,8 +114,8 @@ static NSString * const kCountryKey = @"_country";
     [self.delegate weatherListingDataSource:self didUpdateSearchResult:result];
 }
 
-- (void)setSearchDescriptor:(TM_WeatherListingSearchDescriptor *)searchDescriptor {
-    _searchDescriptor = searchDescriptor;
+- (void)updateSearchResultsWithDescriptor:(TM_WeatherListingSearchDescriptor *)searchDescriptor {
+    self.searchDescriptor = searchDescriptor;
     [self updateSearchResults];
 }
 

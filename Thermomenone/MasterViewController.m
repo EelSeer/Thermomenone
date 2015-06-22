@@ -12,11 +12,17 @@
 #import "TM_WeatherListingDataSource.h"
 #import "Thermomenone-Swift.h"
 
-@interface MasterViewController ()<TM_WeatherListingDataSourceDelegate, UIAlertViewDelegate>
+@interface MasterViewController ()<TM_WeatherListingDataSourceDelegate, UIAlertViewDelegate, UISearchBarDelegate, UISearchResultsUpdating>
 
 @property (nonatomic, strong) NSArray *objects;
+@property (nonatomic, strong) NSArray *searchedObjects;
+
 @property (nonatomic, strong) TM_WeatherListingDataSource *dataSource;
 @property (nonatomic, strong) UIAlertView *alert;
+
+@property (nonatomic, strong) UISearchBar *searchBar;
+@property (nonatomic, strong) UISearchController *searchController;
+
 @end
 
 @implementation MasterViewController
@@ -32,6 +38,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    self.searchController.searchResultsUpdater = self;
+    self.searchController.dimsBackgroundDuringPresentation = NO;
+    
+    // Configure the search bar with scope buttons and add it to the table view header
+    self.searchController.searchBar.scopeButtonTitles = @[];
+    self.searchController.searchBar.delegate = self;
+    self.tableView.tableHeaderView = self.searchController.searchBar;
+    self.definesPresentationContext = YES;
+
     self.dataSource = [[TM_WeatherListingDataSource alloc] initWithDelegate:self];
     [self.dataSource downloadListings];
 }
@@ -56,7 +73,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.objects.count;
+    if (!self.searchController.active) {
+        return self.objects.count;
+    } else {
+        return self.searchedObjects.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -66,6 +87,11 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     TM_Venue *venue = self.objects[indexPath.row];
+    if (!self.searchController.active) {
+        venue = self.objects[indexPath.row];
+    } else {
+        venue = self.searchedObjects[indexPath.row];
+    }
     cell.textLabel.text = venue.venueName;
 }
 
@@ -94,6 +120,16 @@
             [self.alert show];
         }
     });
+}
+
+#pragma mark - UISearchResultsUpdating Methods
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    NSString *searchString = searchController.searchBar.text;
+    self.searchedObjects = [self.objects filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(TM_Venue *venue, NSDictionary *bindings) {
+        return [[venue.venueName lowercaseString] hasPrefix:[searchString lowercaseString]];
+    }]];
+    [self.tableView reloadData];
 }
 
 #pragma mark - UIAlertViewDelegate Methods
