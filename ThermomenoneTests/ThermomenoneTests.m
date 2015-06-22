@@ -32,20 +32,20 @@
     XCTAssert([riverVenue.venueName isEqualToString:venueName], "TM_Venue didn't have correct name on creation.");
     
     NSDictionary *riverVenueDictionary = @{
-                                @"_venueID" : @97,
+                                @"_venueID" : @"97",
                                 @"_name" : @"Adelaide River",
                                 @"_country" : @{
-                                        @"_countryID" : @16,
+                                        @"_countryID" : @"16",
                                         @"_name" : @"Australia"
                                         },
                                 @"_weatherCondition" : @"Partly Cloudy",
                                 @"_weatherConditionIcon" : @"partlycloudy",
                                 @"_weatherWind" : @"Wind: ESE at 17kph",
                                 @"_weatherHumidity" : @"Humidity: 65%",
-                                @"_weatherTemp" : @27,
-                                @"_weatherFeelsLike" : @34,
+                                @"_weatherTemp" : @"27",
+                                @"_weatherFeelsLike" : @"34",
                                 @"_sport" : @{
-                                        @"_sportID" : @1,
+                                        @"_sportID" : @"1",
                                         @"_description" : @"Horse Racing"
                                         },
                                 @"_weatherLastUpdated" : @1401666605
@@ -65,14 +65,14 @@
     XCTAssert([riverVenue.lastUpdated compare:[NSDate dateWithTimeIntervalSince1970:1401666605]] == NSOrderedSame);
     
     NSDictionary *colacVenueDictionary = @{
-                                           @"_venueID" : @102,
+                                           @"_venueID" : @"102",
                                            @"_name" : @"Colac",
                                            @"_country" : @{
-                                                   @"_countryID" : @16,
+                                                   @"_countryID" : @"16",
                                                    @"_name" : @"Australia"
                                                    },
                                            @"_sport" : @{
-                                                   @"_sportID" : @1,
+                                                   @"_sportID" : @"1",
                                                    @"_description" : @"Horse Racing"
                                                    },
                                            };
@@ -91,14 +91,14 @@
     XCTAssert([riverVenue.lastUpdated compare:[NSDate dateWithTimeIntervalSince1970:1401666605]] == NSOrderedSame);
     
     NSDictionary *shortRiverVenueDictionary = @{
-                                                @"_venueID" : @97,
+                                                @"_venueID" : @"97",
                                                 @"_name" : @"Adelaide River",
                                                 @"_country" : @{
-                                                        @"_countryID" : @16,
+                                                        @"_countryID" : @"16",
                                                         @"_name" : @"Australia"
                                                         },
                                                 @"_sport" : @{
-                                                        @"_sportID" : @1,
+                                                        @"_sportID" : @"1",
                                                         @"_description" : @"Horse Racing"
                                                         },
                                                 };

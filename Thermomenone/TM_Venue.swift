@@ -57,8 +57,8 @@ extension TM_Venue {
             }
         }
         
-        if let v: Int = manifestValueForKey(venueDictionary, key: TM_Venue_ManifestKey.venueID) {
-            if v != self.venueID {
+        if let v: String = manifestValueForKey(venueDictionary, key: TM_Venue_ManifestKey.venueID) {
+            if v.toInt() != self.venueID {
                 return
             }
         }
@@ -117,14 +117,14 @@ extension TM_Venue {
             self.weatherHumidity = nil
         }
         
-        if let v: Int = manifestValueForKey(venueDictionary, key: TM_Venue_ManifestKey.weatherTemp) {
-            self.weatherTemp = v
+        if let v: String = manifestValueForKey(venueDictionary, key: TM_Venue_ManifestKey.weatherTemp) {
+            self.weatherTemp = v.toInt()
         } else {
             self.weatherTemp = nil;
         }
         
-        if let v: Int = manifestValueForKey(venueDictionary, key: TM_Venue_ManifestKey.weatherFeelsLike) {
-            self.weatherFeelsLike = v
+        if let v: String = manifestValueForKey(venueDictionary, key: TM_Venue_ManifestKey.weatherFeelsLike) {
+            self.weatherFeelsLike = v.toInt()
         } else {
             self.weatherFeelsLike = nil
         }
