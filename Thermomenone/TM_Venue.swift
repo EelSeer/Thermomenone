@@ -28,15 +28,15 @@ public enum TM_CountryKey: String {
 
 public class TM_Venue : NSObject {
     public let venueName: String
-    public let venueID: Int
-    public init(venueName: String, venueID: Int) {
+    public let venueID: String
+    public init(venueName: String, venueID: String) {
         assert(count(venueName) > 0, "Empty String passed on TMVenue initializer");
         self.venueName = venueName
         self.venueID = venueID
     }
 
     public var country: String?
-    public var countryID: NSNumber?
+    public var countryID: String?
     public var weatherCondition: String?
     public var weatherConditionIcon: String?
     public var weatherWindDirection: String?
@@ -58,7 +58,7 @@ extension TM_Venue {
         }
         
         if let v: String = manifestValueForKey(venueDictionary, key: TM_Venue_ManifestKey.venueID) {
-            if v.toInt() != self.venueID {
+            if v != self.venueID {
                 return
             }
         }

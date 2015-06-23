@@ -10,9 +10,9 @@ import Foundation
 
 public class TM_Country : NSObject {
     public let countryName: String
-    public let countryID: Int
+    public let countryID: String
     
-    public init(countryName: String, countryID: Int) {
+    public init(countryName: String, countryID: String) {
         assert(count(countryName) > 0, "Empty String passed on TMVenue initializer");
         self.countryName = countryName
         self.countryID = countryID

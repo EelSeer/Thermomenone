@@ -28,7 +28,7 @@
 - (void)testTMVenue {
     NSString *venueName = @"Adelaide River";
 
-    TM_Venue *riverVenue = [[TM_Venue alloc] initWithVenueName:venueName venueID:97];
+    TM_Venue *riverVenue = [[TM_Venue alloc] initWithVenueName:venueName venueID:@"97"];
     XCTAssert([riverVenue.venueName isEqualToString:venueName], "TM_Venue didn't have correct name on creation.");
     
     NSDictionary *riverVenueDictionary = @{
@@ -53,7 +53,7 @@
 
     [riverVenue updateVenue:riverVenueDictionary];
     XCTAssert([riverVenue.venueName isEqualToString:venueName]);
-    XCTAssert(riverVenue.venueID == 97);
+    XCTAssert([riverVenue.venueID isEqualToString:@"97"]);
     XCTAssert([riverVenue.country isEqualToString:@"Australia"]);
     XCTAssert([riverVenue.weatherCondition isEqualToString:@"Partly Cloudy"]);
     XCTAssert([riverVenue.weatherConditionIcon isEqualToString:@"partlycloudy"]);
@@ -79,7 +79,7 @@
     
     //Nothing should change since the name does not match the original.
     XCTAssert([riverVenue.venueName isEqualToString:venueName]);
-    XCTAssert(riverVenue.venueID == 97);
+    XCTAssert([riverVenue.venueID isEqualToString:@"97"]);
     XCTAssert([riverVenue.country isEqualToString:@"Australia"]);
     XCTAssert([riverVenue.weatherCondition isEqualToString:@"Partly Cloudy"]);
     XCTAssert([riverVenue.weatherConditionIcon isEqualToString:@"partlycloudy"]);
@@ -114,7 +114,7 @@
     XCTAssert(!riverVenue.weatherHumidity);
     XCTAssert(!riverVenue.lastUpdated);
 
-    TM_Venue *colacVenue = [[TM_Venue alloc] initWithVenueName:@"Colac" venueID:102];
+    TM_Venue *colacVenue = [[TM_Venue alloc] initWithVenueName:@"Colac" venueID:@"102"];
     [colacVenue updateVenue:colacVenueDictionary];
     XCTAssert([colacVenue.venueName isEqualToString:@"Colac"]);
     XCTAssert([riverVenue.country isEqualToString:@"Australia"]);

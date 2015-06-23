@@ -88,7 +88,7 @@ static NSString * const kCountryKey = @"_country";
         if (!country) {
             NSString *countryName = venueDictionary[kCountryKey][kCountryNameKey];
             if (countryName) {
-                country = [[TM_Country alloc] initWithCountryName:countryName countryID:countryID.integerValue];
+                country = [[TM_Country alloc] initWithCountryName:countryName countryID:countryID];
             } else {
                 continue;
             }
@@ -98,7 +98,7 @@ static NSString * const kCountryKey = @"_country";
         TM_Venue *venue = country.venues[venueID];
         if (!venue) {
             NSString *venueName = venueDictionary[kVenueNameKey];
-            venue = [[TM_Venue alloc] initWithVenueName:venueName venueID:[venueID integerValue]];
+            venue = [[TM_Venue alloc] initWithVenueName:venueName venueID:venueID];
         }
         [venue updateVenue:venueDictionary];
         country.venues[venueID] = venue;
