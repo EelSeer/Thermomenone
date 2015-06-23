@@ -13,7 +13,7 @@ typedef NS_ENUM(NSUInteger, TM_ListingSortType) {
 
 @interface TM_WeatherListingSearchDescriptor : NSObject
 
-@property (nonatomic, strong) NSNumber *countryFilter;
+@property (nonatomic, copy) NSString *countryFilter;
 @property (nonatomic, copy) NSString *conditionFilter;
 @property (nonatomic, assign) TM_ListingSortType sortType;
 

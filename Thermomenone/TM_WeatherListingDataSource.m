@@ -75,7 +75,7 @@ static NSString * const kCountryKey = @"_country";
     }
     
     for (NSDictionary *venueDictionary in venues) {
-        NSNumber *countryID = venueDictionary[kCountryKey][kCountryIDKey];
+        NSString *countryID = venueDictionary[kCountryKey][kCountryIDKey];
         TM_Country *country = countryDictionary[countryID];
         if (!country) {
             NSString *countryName = venueDictionary[kCountryKey][kCountryNameKey];
@@ -86,7 +86,7 @@ static NSString * const kCountryKey = @"_country";
             }
         }
         
-        NSNumber *venueID = venueDictionary[kVenueIDKey];
+        NSString *venueID = venueDictionary[kVenueIDKey];
         TM_Venue *venue = country.venues[venueID];
         if (!venue) {
             NSString *venueName = venueDictionary[kVenueNameKey];
@@ -111,8 +111,9 @@ static NSString * const kCountryKey = @"_country";
             }
         }
     } else {
-        if (self.countries[self.searchDescriptor.countryFilter]) {
-            results = [NSMutableArray arrayWithArray:self.countries[self.searchDescriptor.countryFilter]];
+        TM_Country *country = self.countries[self.searchDescriptor.countryFilter];
+        if (country) {
+            results = [NSMutableArray arrayWithArray:[country.venues allValues]];
         }
     }
     
