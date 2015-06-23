@@ -23,6 +23,8 @@
 @property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, strong) UISearchController *searchController;
 
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
+
 @end
 
 @implementation TM_WeatherListingViewController
@@ -56,7 +58,7 @@
     self.searchController.searchBar.delegate = self;
     self.tableView.tableHeaderView = self.searchController.searchBar;
     self.definesPresentationContext = YES;
-
+    self.navItem.title = @"Last Updated: Never";
     self.dataSource = [[TM_WeatherListingDataSource alloc] initWithDelegate:self];
     [self.dataSource downloadListings];
 }
@@ -120,6 +122,13 @@
 - (void)weatherListingDataSource:(TM_WeatherListingDataSource *)dataSource didUpdateSearchResult:(NSMutableArray *)result {
     dispatch_async(dispatch_get_main_queue(), ^{
         self.objects = result;
+        if (!self.dateFormatter) {
+            self.dateFormatter = [[NSDateFormatter alloc] init];
+            self.dateFormatter.dateFormat = @"h:mma";
+        }
+        
+        NSString *dateString = [[self.dateFormatter stringFromDate:self.dataSource.lastUpdated] lowercaseString];
+        self.navItem.title = [NSString stringWithFormat:@"Last Updated: %@", dateString];
         [self.tableView reloadData];
     });
 }

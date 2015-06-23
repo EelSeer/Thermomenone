@@ -13,7 +13,7 @@
 @interface TM_WeatherListingViewController : UITableViewController
 
 @property (strong, nonatomic) TM_WeatherDetailViewController *detailViewController;
-
+@property (weak, nonatomic) IBOutlet UINavigationItem *navItem;
 
 @end
 
