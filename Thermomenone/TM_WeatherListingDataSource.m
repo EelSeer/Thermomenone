@@ -124,7 +124,23 @@ static NSString * const kCountryKey = @"_country";
     }
     
     NSArray *result = [results sortedArrayUsingComparator:^NSComparisonResult(TM_Venue *obj1, TM_Venue *obj2) {
-        return [obj1.venueName compare:obj2.venueName];
+        switch (self.searchDescriptor.sortType) {
+            case TM_ListingSortTypeAlphabetical:
+                return [obj1.venueName compare:obj2.venueName];
+                break;
+            case TM_ListingSortTypeAlphabeticalReversed:
+                return [obj2.venueName compare:obj1.venueName];
+                break;
+            case TM_ListingSortTypeTemperature:
+                return [obj1.weatherTemp compare:obj2.weatherTemp];
+                break;
+            case TM_ListingSortTypeTemperatureReversed:
+                return [obj2.weatherTemp compare:obj1.weatherTemp];
+                break;
+            case TM_ListingSortTypeLastUpdated:
+                return [obj1.lastUpdated compare:obj2.lastUpdated];
+                break;
+        }
     }];
     
     [self.delegate weatherListingDataSource:self didUpdateSearchResult:result];
