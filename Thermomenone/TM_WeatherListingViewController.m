@@ -12,7 +12,7 @@
 #import "TM_WeatherListingDataSource.h"
 #import "Thermomenone-Swift.h"
 
-@interface TM_WeatherListingViewController ()<TM_WeatherListingDataSourceDelegate, UIAlertViewDelegate, UISearchBarDelegate, UISearchResultsUpdating>
+@interface TM_WeatherListingViewController ()<TM_WeatherListingDataSourceDelegate, UIAlertViewDelegate, UISearchBarDelegate, UISearchResultsUpdating, UIToolbarDelegate>
 
 @property (nonatomic, strong) NSArray *objects;
 @property (nonatomic, strong) NSArray *searchedObjects;
@@ -24,6 +24,8 @@
 @property (nonatomic, strong) UISearchController *searchController;
 
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
+
+@property (nonatomic, strong) UIAlertController *sortAlertController;
 
 @end
 
@@ -58,7 +60,7 @@
     self.searchController.searchBar.delegate = self;
     self.tableView.tableHeaderView = self.searchController.searchBar;
     self.definesPresentationContext = YES;
-    self.navItem.title = @"Last Updated: Never";
+    
     self.dataSource = [[TM_WeatherListingDataSource alloc] initWithDelegate:self];
     [self.dataSource downloadListings];
 }
@@ -68,6 +70,12 @@
     if (date.timeIntervalSince1970 - self.dataSource.lastUpdated.timeIntervalSince1970 > 300) {
         [self.dataSource downloadListings];
     }
+}
+
+#pragma mark - Sort
+
+- (void)refineButtonTapped:(id)sender {
+    
 }
 
 #pragma mark - Segues
@@ -80,6 +88,9 @@
         [controller setDetailItem:object];
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"showRefine"]) {
     }
 }
 
