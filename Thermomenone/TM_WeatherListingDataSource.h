@@ -14,7 +14,8 @@
 @interface TM_WeatherListingDataSource : NSObject
 
 - (instancetype)initWithDelegate:(id<TM_WeatherListingDataSourceDelegate>)delegate;
-- (void)downloadListings;
+- (void)updateListings:(BOOL)fetchNewFeed;
+
 @property (nonatomic, strong, readonly) TM_WeatherListingSearchDescriptor *searchDescriptor;
 @property (nonatomic, strong) NSDate *lastUpdated;
 

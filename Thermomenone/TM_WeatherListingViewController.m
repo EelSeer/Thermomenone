@@ -63,13 +63,13 @@
     self.definesPresentationContext = YES;
     
     self.dataSource = [[TM_WeatherListingDataSource alloc] initWithDelegate:self];
-    [self.dataSource downloadListings];
+    [self.dataSource updateListings:YES];
 }
 
 - (void)considerRefreshingData:(NSNotification *)notification {
     NSDate *date = [NSDate date];
     if (date.timeIntervalSince1970 - self.dataSource.lastUpdated.timeIntervalSince1970 > 300) {
-        [self.dataSource downloadListings];
+        [self.dataSource updateListings:YES];
     }
 }
 

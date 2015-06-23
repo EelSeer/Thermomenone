@@ -40,6 +40,14 @@ static NSString * const kCountryKey = @"_country";
     return self;
 }
 
+- (void)updateListings:(BOOL)fetchNewFeed {
+    if (fetchNewFeed) {
+        [self downloadListings];
+    } else {
+        [self updateSearchResults];
+    }
+}
+
 - (void)downloadListings {
     if (!self.downloadTask) {
         NSURLSession *session = [NSURLSession sharedSession];
@@ -132,10 +140,10 @@ static NSString * const kCountryKey = @"_country";
                 return [obj2.venueName compare:obj1.venueName];
                 break;
             case TM_ListingSortTypeTemperature:
-                return [obj1.weatherTemp compare:obj2.weatherTemp];
+                return obj1.weatherTemp.integerValue >= obj2.weatherTemp.integerValue;
                 break;
             case TM_ListingSortTypeTemperatureReversed:
-                return [obj2.weatherTemp compare:obj1.weatherTemp];
+                return obj1.weatherTemp.integerValue <= obj2.weatherTemp.integerValue;
                 break;
             case TM_ListingSortTypeLastUpdated:
                 return [obj1.lastUpdated compare:obj2.lastUpdated];
