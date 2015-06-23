@@ -10,4 +10,14 @@
 
 @implementation TM_WeatherListingSearchDescriptor
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.countryFilter = nil;
+        self.conditionFilter = nil;
+        self.sortType = TM_ListingSortTypeAlphabetical;
+    }
+    return self;
+}
+
 @end

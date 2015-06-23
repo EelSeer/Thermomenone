@@ -15,8 +15,7 @@
 
 - (instancetype)initWithDelegate:(id<TM_WeatherListingDataSourceDelegate>)delegate;
 - (void)downloadListings;
-- (void)updateSearchResultsWithDescriptor:(TM_WeatherListingSearchDescriptor *)searchDescriptor;
-
+@property (nonatomic, strong, readonly) TM_WeatherListingSearchDescriptor *searchDescriptor;
 @property (nonatomic, strong) NSDate *lastUpdated;
 
 @end

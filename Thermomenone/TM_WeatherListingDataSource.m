@@ -22,10 +22,9 @@ static NSString * const kCountryKey = @"_country";
 @interface TM_WeatherListingDataSource ()
 
 @property (nonatomic, weak) id<TM_WeatherListingDataSourceDelegate> delegate;
-@property (nonatomic, strong) TM_WeatherListingSearchDescriptor *searchDescriptor;
 
 @property (nonatomic, strong) NSDictionary *countries;
-
+@property (nonatomic, strong) TM_WeatherListingSearchDescriptor *searchDescriptor;
 @property (nonatomic, strong) NSURLSessionDataTask *downloadTask;
 
 @end
@@ -36,6 +35,7 @@ static NSString * const kCountryKey = @"_country";
     self = [super init];
     if (self) {
         _delegate = delegate;
+        _searchDescriptor = [[TM_WeatherListingSearchDescriptor alloc] init];
     }
     return self;
 }
@@ -101,23 +101,32 @@ static NSString * const kCountryKey = @"_country";
 }
 
 - (void)updateSearchResults {
-    //not using sort descriptor yet. Just wanna test perf and feedfetcher.
-    NSMutableArray *results = [NSMutableArray array];
-    for (TM_Country *country in [self.countries allValues]) {
-        for (TM_Venue *venue in [country.venues allValues]) {
-       
-            [results addObject:venue];
+    NSMutableArray *results = nil;
+    
+    if (!self.searchDescriptor.countryFilter) {
+        results = [NSMutableArray array];
+        for (TM_Country *country in [self.countries allValues]) {
+            for (TM_Venue *venue in [country.venues allValues]) {
+                [results addObject:venue];
+            }
+        }
+    } else {
+        if (self.countries[self.searchDescriptor.countryFilter]) {
+            results = [NSMutableArray arrayWithArray:self.countries[self.searchDescriptor.countryFilter]];
         }
     }
+    
+    if (results.count && self.searchDescriptor.conditionFilter) {
+        [results filterUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(TM_Venue *venue, NSDictionary *bindings) {
+            return [venue.weatherCondition isEqualToString:self.searchDescriptor.conditionFilter];
+        }]];
+    }
+    
     NSArray *result = [results sortedArrayUsingComparator:^NSComparisonResult(TM_Venue *obj1, TM_Venue *obj2) {
         return [obj1.venueName compare:obj2.venueName];
     }];
+    
     [self.delegate weatherListingDataSource:self didUpdateSearchResult:result];
-}
-
-- (void)updateSearchResultsWithDescriptor:(TM_WeatherListingSearchDescriptor *)searchDescriptor {
-    self.searchDescriptor = searchDescriptor;
-    [self updateSearchResults];
 }
 
 @end
