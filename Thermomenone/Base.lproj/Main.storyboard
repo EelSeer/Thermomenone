@@ -120,7 +120,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="navItem" destination="Zdf-7t-Un8" id="Ii1-j3-OCb"/>
                     </connections>
@@ -131,7 +130,7 @@
         <!--Refine-->
         <scene sceneID="M3T-2K-mHz">
             <objects>
-                <tableViewController title="Refine" id="UMI-jS-OHD" sceneMemberID="viewController">
+                <tableViewController title="Refine" id="UMI-jS-OHD" customClass="TM_RefineTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="cyx-ST-dB3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -283,6 +282,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Tll-UG-LXB"/>
+        <segue reference="6S0-TO-JiA"/>
     </inferredMetricsTieBreakers>
 </document>

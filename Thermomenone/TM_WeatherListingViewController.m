@@ -8,6 +8,7 @@
 
 #import "TM_WeatherListingViewController.h"
 #import "TM_WeatherDetailViewController.h"
+#import "TM_RefineTableViewController.h"
 
 #import "TM_WeatherListingDataSource.h"
 #import "Thermomenone-Swift.h"
@@ -72,12 +73,6 @@
     }
 }
 
-#pragma mark - Sort
-
-- (void)refineButtonTapped:(id)sender {
-    
-}
-
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -91,6 +86,8 @@
     }
     
     if ([[segue identifier] isEqualToString:@"showRefine"]) {
+        TM_RefineTableViewController *controller = (TM_RefineTableViewController *)[segue destinationViewController];
+        controller.dataSource = self.dataSource;
     }
 }
 
