@@ -14,10 +14,14 @@
 @interface TM_WeatherListingDataSource : NSObject
 
 - (instancetype)initWithDelegate:(id<TM_WeatherListingDataSourceDelegate>)delegate;
+
+
 - (void)updateListings:(BOOL)fetchNewFeed;
 
 @property (nonatomic, strong, readonly) TM_WeatherListingSearchDescriptor *searchDescriptor;
+@property (nonatomic, strong, readonly) NSDictionary *countries;
 @property (nonatomic, strong) NSDate *lastUpdated;
+
 
 @end
 

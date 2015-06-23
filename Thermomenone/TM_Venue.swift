@@ -49,6 +49,23 @@ public class TM_Venue : NSObject {
 
 extension TM_Venue {
     
+    //There's got to be a definitive list of weatherTypes somewhere and TM_Venue looks like the place to put it.
+    public class func weatherTypes() -> Array<String> {
+        return ["clear",
+            "cloudy",
+            "fog",
+            "haze",
+            "mist",
+            "mostlyCloudy",
+            "partlyCloudy",
+            "rain",
+            "smoke",
+            "snow",
+            "storm",
+            "sunny"
+        ]
+    }
+    
     public func updateVenue(venueDictionary: Dictionary<String, AnyObject>) {
         //check that venue name and ID are correct. we don't want to update at all if we got the wrong venue here.
         if let v: String = manifestValueForKey(venueDictionary, key: TM_Venue_ManifestKey.venueName) {
