@@ -18,4 +18,12 @@ I should probably store venue/country IDs as strings everywhere since I'm using 
 
 Implemented sort filter. I'm sure I didn't need to hardcode the cells in the storyboard tableview *and* create an NS_ENUM to map indexpaths to access them, surely there's some identifier value I could've used? But this is pretty easy to work with.
 
+I ended up doing nested tableviews for the filtering. I guess I'd prefer to have used an actionsheet-like widget for those, but here we are instead. Still a couple tweaks needed here.
+
+Tomorrow I'll do what's left of the filtering, then..
+
+- User Refresh
+- Pretty up the table view cells
+- Get around to actually displaying some data in the detailVC
+
 -
