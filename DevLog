@@ -15,3 +15,7 @@ I think I'll add an init class to it that causes it to build from dictionary and
 -
 
 I should probably store venue/country IDs as strings everywhere since I'm using the string from the feed as a dictionary key.
+
+Implemented sort filter. I'm sure I didn't need to hardcode the cells in the storyboard tableview *and* create an NS_ENUM to map indexpaths to access them, surely there's some identifier value I could've used? But this is pretty easy to work with.
+
+-
