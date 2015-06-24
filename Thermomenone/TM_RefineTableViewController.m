@@ -116,49 +116,4 @@ typedef NS_ENUM(NSUInteger, TM_RefineTableFilterRows) {
     [self.tableView reloadData];
 }
 
-
-//// returns the # of rows in each component..
-//- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-//    switch (self.selectedFilterRow) {
-//        case TMRefineTableFilterCountryRow:
-//            return [self.countries count]+1;
-//            break;
-//        case TMRefineTableFilterConditionRow:
-//            return [TM_Venue weatherTypes].count+1;
-//            break;
-//    }
-//}
-//
-//#pragma mark - UIPickerViewDelegate
-//
-//- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-//    switch (self.selectedFilterRow) {
-//        case TMRefineTableFilterCountryRow:
-//            self.dataSource.searchDescriptor.countryFilter = (row == 0) ? nil : [self.countries[row-1] countryID];
-//            break;
-//        case TMRefineTableFilterConditionRow:
-//            self.dataSource.searchDescriptor.conditionFilter = (row == 0) ? nil : [TM_Venue weatherTypes][row-1];
-//            break;
-//    }
-//}
-//
-//
-//- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-//    switch (self.selectedFilterRow) {
-//        case TMRefineTableFilterCountryRow:
-//            if (row == 0) {
-//                return @"All";
-//            }
-//            return [self.countries[row-1] countryName];
-//            break;
-//        case TMRefineTableFilterConditionRow:
-//            if (row == 0) {
-//                return @"All";
-//            }
-//            return [TM_Venue weatherTypes][row-1];
-//            break;
-//    }
-//}
-
-
 @end
