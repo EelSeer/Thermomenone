@@ -38,10 +38,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [TM_Venue weatherTypes].count;
+    return [TM_Venue weatherTypes].count+1;
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    cell.textLabel.text = self.conditions[indexPath.row];
+    if (indexPath.row == 0) {
+        cell.textLabel.text = @"All";
+    } else {
+        cell.textLabel.text = self.conditions[indexPath.row];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -50,7 +54,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.dataSource.searchDescriptor.conditionFilter = self.conditions[indexPath.row];
+    if (indexPath.row == 0) {
+        self.dataSource.searchDescriptor.conditionFilter = nil;
+    } else {
+        self.dataSource.searchDescriptor.conditionFilter = self.conditions[indexPath.row-1];
+    }
     [self.delegate filterTableViewController:self didUpdateDataSource:self.dataSource];
 }
 

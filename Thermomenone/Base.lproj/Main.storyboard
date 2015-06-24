@@ -350,6 +350,14 @@
                             <outlet property="delegate" destination="UMI-jS-OHD" id="kHg-Ob-IyT"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="UDI-pK-I6F">
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="vkg-nZ-gKB">
+                            <color key="tintColor" red="1" green="0.056520356690000002" blue="0.1119585308" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="clearButtonTapped:" destination="UMI-jS-OHD" id="NI8-3Z-Mjb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vlr-su-2gz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -12,5 +12,5 @@
 @interface TM_RefineTableViewController : UITableViewController
 
 @property (strong, nonatomic) TM_WeatherListingDataSource *dataSource;
-
+- (IBAction)clearButtonTapped:(id)sender;
 @end

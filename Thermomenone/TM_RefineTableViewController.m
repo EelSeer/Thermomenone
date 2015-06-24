@@ -44,6 +44,14 @@ typedef NS_ENUM(NSUInteger, TM_RefineTableFilterRows) {
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)clearButtonTapped:(id)sender {
+    self.dataSource.searchDescriptor.countryFilter = nil;
+    self.dataSource.searchDescriptor.conditionFilter = nil;
+    self.dataSource.searchDescriptor.sortType = TM_ListingSortTypeAlphabetical;
+    [self.tableView reloadData];
+}
+
+
 #pragma mark - Table view data source
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

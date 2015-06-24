@@ -48,7 +48,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (!self.searchController.active) {
-        return self.countries.count;
+        return self.countries.count+1;
     } else {
         return self.searchedCountries.count;
     }
@@ -75,23 +75,31 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     TM_Country *country = nil;
     if (!self.searchController.active) {
-        country = self.countries[indexPath.row];
+        if (indexPath.row == 0) {
+            cell.textLabel.text = @"All";
+            return;
+        }
+        country = self.countries[indexPath.row-1];
     } else {
         country = self.searchedCountries[indexPath.row];
     }
     cell.textLabel.text = country.countryName;
-        
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     TM_Country *country = nil;
     if (!self.searchController.active) {
-        country = self.countries[indexPath.row];
+        if (indexPath.row == 0) {
+            self.dataSource.searchDescriptor.countryFilter = nil;
+        } else {
+            country = self.countries[indexPath.row-1];
+            self.dataSource.searchDescriptor.countryFilter = country.countryID;
+        }
     } else {
         country = self.searchedCountries[indexPath.row];
+        self.dataSource.searchDescriptor.countryFilter = country.countryID;
     }
     
-    self.dataSource.searchDescriptor.countryFilter = country.countryID;
     [self.delegate filterTableViewController:self didUpdateDataSource:self.dataSource];
 }
 
