@@ -54,7 +54,7 @@ extension TM_Venue {
         return ["Clear",
             "Cloudy",
             "Fog",
-            "Hazy",
+            "Haze",
             "Mist",
             "Mostly Cloudy",
             "Partly Cloudy",
