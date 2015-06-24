@@ -9,6 +9,7 @@
 #import "TM_WeatherListingViewController.h"
 #import "TM_WeatherDetailViewController.h"
 #import "TM_RefineTableViewController.h"
+#import "TM_WeatherListingTableViewCell.h"
 
 #import "TM_WeatherListingDataSource.h"
 #import "Thermomenone-Swift.h"
@@ -61,6 +62,11 @@
     self.searchController.searchBar.delegate = self;
     self.tableView.tableHeaderView = self.searchController.searchBar;
     self.definesPresentationContext = YES;
+    
+    if (!self.dateFormatter) {
+        self.dateFormatter = [[NSDateFormatter alloc] init];
+        self.dateFormatter.dateFormat = @"h:mma";
+    }
     
     self.dataSource = [[TM_WeatherListingDataSource alloc] initWithDelegate:self];
     [self.dataSource updateListings:YES];
@@ -117,7 +123,24 @@
     } else {
         venue = self.searchedObjects[indexPath.row];
     }
-    cell.textLabel.text = venue.venueName;
+    
+    TM_WeatherListingTableViewCell *listingCell = (TM_WeatherListingTableViewCell *)cell;
+    listingCell.locationLabel.text = venue.venueName;
+    listingCell.countryLabel.text = venue.country;
+    if (venue.weatherTemp) {
+        listingCell.temperatureLabel.text = [NSString stringWithFormat:@"%ld°C", [venue.weatherTemp longValue]];
+    } else {
+        listingCell.temperatureLabel.text = @"-";
+    }
+    
+    if (venue.lastUpdated) {
+        NSString *dateString = [self.dateFormatter stringFromDate:venue.lastUpdated];
+        listingCell.lastUpdatedLabel.text = [NSString stringWithFormat:@"Last Updated: %@", dateString];
+    }
+    
+    if (venue.weatherConditionIcon) {
+        listingCell.weatherIconView.image = [UIImage imageNamed:venue.weatherConditionIcon];
+    }
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -130,11 +153,6 @@
 - (void)weatherListingDataSource:(TM_WeatherListingDataSource *)dataSource didUpdateSearchResult:(NSMutableArray *)result {
     dispatch_async(dispatch_get_main_queue(), ^{
         self.objects = result;
-        if (!self.dateFormatter) {
-            self.dateFormatter = [[NSDateFormatter alloc] init];
-            self.dateFormatter.dateFormat = @"h:mma";
-        }
-        
         NSString *dateString = [[self.dateFormatter stringFromDate:self.dataSource.lastUpdated] lowercaseString];
         self.navItem.title = [NSString stringWithFormat:@"Last Updated: %@", dateString];
         [self.tableView reloadData];

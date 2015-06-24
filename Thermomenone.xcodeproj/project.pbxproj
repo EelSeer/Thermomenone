@@ -24,6 +24,7 @@
 		DA2A73591B3998D800B88D52 /* TM_CountryFilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2A73581B3998D800B88D52 /* TM_CountryFilterTableViewController.m */; };
 		DA2A735C1B3998E600B88D52 /* TM_ConditionFilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2A735B1B3998E600B88D52 /* TM_ConditionFilterTableViewController.m */; };
 		DA2A735F1B399A0700B88D52 /* TM_FilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2A735E1B399A0700B88D52 /* TM_FilterTableViewController.m */; };
+		DAC2A41D1B3AAC900017B41A /* TM_WeatherListingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC2A41C1B3AAC900017B41A /* TM_WeatherListingTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		DA2A735B1B3998E600B88D52 /* TM_ConditionFilterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TM_ConditionFilterTableViewController.m; sourceTree = "<group>"; };
 		DA2A735D1B399A0700B88D52 /* TM_FilterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TM_FilterTableViewController.h; sourceTree = "<group>"; };
 		DA2A735E1B399A0700B88D52 /* TM_FilterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TM_FilterTableViewController.m; sourceTree = "<group>"; };
+		DAC2A41B1B3AAC900017B41A /* TM_WeatherListingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TM_WeatherListingTableViewCell.h; sourceTree = "<group>"; };
+		DAC2A41C1B3AAC900017B41A /* TM_WeatherListingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TM_WeatherListingTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +196,8 @@
 			children = (
 				DA2252E21B3676B70049C809 /* TM_WeatherListingViewController.h */,
 				DA2252E31B3676B70049C809 /* TM_WeatherListingViewController.m */,
+				DAC2A41B1B3AAC900017B41A /* TM_WeatherListingTableViewCell.h */,
+				DAC2A41C1B3AAC900017B41A /* TM_WeatherListingTableViewCell.m */,
 				DA2A73601B399A5B00B88D52 /* Refinement */,
 			);
 			name = "Listing ";
@@ -319,6 +324,7 @@
 				DA2252E41B3676B70049C809 /* TM_WeatherListingViewController.m in Sources */,
 				DA2A73591B3998D800B88D52 /* TM_CountryFilterTableViewController.m in Sources */,
 				DA2252DE1B3676B70049C809 /* main.m in Sources */,
+				DAC2A41D1B3AAC900017B41A /* TM_WeatherListingTableViewCell.m in Sources */,
 				DA2253611B367BF80049C809 /* TM_Venue.swift in Sources */,
 				DA2253A21B37E7E10049C809 /* TM_WeatherListingSearchDescriptor.m in Sources */,
 				DA2A734B1B39631000B88D52 /* TM_RefineTableViewController.m in Sources */,
