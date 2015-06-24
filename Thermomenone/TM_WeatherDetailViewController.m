@@ -76,19 +76,19 @@ typedef NS_ENUM(NSUInteger, TM_WeatherDetailSpeedType) {
         default:
             break;
     }
-    self.temperatureIsLabel.text = [NSString stringWithFormat:@"IT'S %f.1 DEGREES", degrees];
+    self.temperatureIsLabel.text = [NSString stringWithFormat:@"IT'S %.1f DEGREES", degrees];
     [self.temperatureMeasurementButton setTitle:degreeString forState:UIControlStateNormal];
     
     if (degrees == feelsLikeDegrees) {
         self.temperatureFeelsLikeLabel.text = @"THE THERMOMETER SAID SO";
     } else {
-        self.temperatureFeelsLikeLabel.text = @"BUT IT FEELS LIKE %f.1 DEGREES.\n SCIENCE IS WRONG AGAIN.";
+        self.temperatureFeelsLikeLabel.text = [NSString stringWithFormat:@"BUT IT FEELS LIKE %.1f DEGREES.\n SCIENCE IS WRONG AGAIN.", degrees];
     }
 }
 
 - (void)configureConditionView {
     if (self.venue.weatherCondition) {
-        self.conditionLabel.text = [NSString stringWithFormat:@"IT'S A %@ DAY IN %@", self.venue.weatherCondition, self.venue.venueName];
+        self.conditionLabel.text = [NSString stringWithFormat:@"IT'S A %@ DAY IN %@", [self.venue.weatherCondition uppercaseString], self.venue.venueName];
     } else {
         self.conditionLabel.text = [NSString stringWithFormat:@"I DUNNO WHAT KIND OF DAY IT IS IN %@", self.venue.venueName];
     }
@@ -114,7 +114,7 @@ typedef NS_ENUM(NSUInteger, TM_WeatherDetailSpeedType) {
                 break;
         }
         self.windSpeedMeasurementButton.hidden = NO;
-        self.windLabel.text = [NSString stringWithFormat:@"THE WIND IS GOING %@ AT %f.1", self.venue.weatherWindDirection, windspeed];
+        self.windLabel.text = [NSString stringWithFormat:@"THE WIND IS GOING %@ AT %.1f", self.venue.weatherWindDirection, windspeed];
         [self.windSpeedMeasurementButton setTitle:windMeasurementString forState:UIControlStateNormal];
     }
 }
@@ -122,7 +122,7 @@ typedef NS_ENUM(NSUInteger, TM_WeatherDetailSpeedType) {
 - (void)configureHumidityView {
     if (self.venue.weatherHumidity) {
         if ([self.venue.weatherHumidity integerValue]) {
-            self.humidityLabel.text = [NSString stringWithFormat:@"THE AIR IS %f.1 WATER", self.venue.weatherHumidity.doubleValue];
+            self.humidityLabel.text = [NSString stringWithFormat:@"THE AIR IS %.1f WATER", self.venue.weatherHumidity.doubleValue];
         } else {
             self.humidityLabel.text = @"IT'S NOT HUMID";
         }
