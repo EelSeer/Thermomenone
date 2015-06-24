@@ -43,7 +43,7 @@ typedef NS_ENUM(NSUInteger, TM_WeatherDetailSpeedType) {
 
 - (void)setVenue:(TM_Venue *)venue {
     if (_venue != venue) {
-        venue = venue;
+        _venue = venue;
         [self configureView];
     }
 }
