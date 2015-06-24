@@ -17,8 +17,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *temperatureFeelsLikeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *conditionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *windLabel;
-@property (weak, nonatomic) IBOutlet UILabel *windSpeedMeasurementButton;
+@property (weak, nonatomic) IBOutlet UIButton *windSpeedMeasurementButton;
 @property (weak, nonatomic) IBOutlet UILabel *humidityLabel;
+
+
+- (IBAction)didTapTemperatureMeasurementButton:(id)sender;
+- (IBAction)didTapWindSpeedMeasurementButton:(id)sender;
 
 @end
 
