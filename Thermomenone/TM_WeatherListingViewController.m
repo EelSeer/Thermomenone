@@ -84,11 +84,13 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = self.objects[indexPath.row];
+        TM_Venue *venue = self.objects[indexPath.row];
         TM_WeatherDetailViewController *controller = (TM_WeatherDetailViewController *)[[segue destinationViewController] topViewController];
-        [controller setDetailItem:object];
+        [controller setVenue:venue];
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
+        controller.navigationItem.title = venue.venueName
+        ;
     }
     
     if ([[segue identifier] isEqualToString:@"showRefine"]) {
