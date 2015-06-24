@@ -122,7 +122,7 @@ typedef NS_ENUM(NSUInteger, TM_WeatherDetailSpeedType) {
 - (void)configureHumidityView {
     if (self.venue.weatherHumidity) {
         if ([self.venue.weatherHumidity integerValue]) {
-            self.humidityLabel.text = [NSString stringWithFormat:@"THE AIR IS %.1f WATER", self.venue.weatherHumidity.doubleValue];
+            self.humidityLabel.text = [NSString stringWithFormat:@"THE AIR IS %.1f PERCENT WATER", self.venue.weatherHumidity.doubleValue];
         } else {
             self.humidityLabel.text = @"IT'S NOT HUMID";
         }
