@@ -88,7 +88,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fow-Ik-iAx">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fow-Ik-iAx">
                                             <rect key="frame" x="8" y="1" width="73" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -107,13 +107,13 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Country" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bx5-Uv-Eej">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Country" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bx5-Uv-Eej">
                                             <rect key="frame" x="8" y="26" width="61" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Last Updated: 4:30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcf-k5-w3d">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="248" text="Last Updated: 4:30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcf-k5-w3d">
                                             <rect key="frame" x="8" y="46" width="107" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -121,13 +121,13 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="pcf-k5-w3d" firstAttribute="top" secondItem="Bx5-Uv-Eej" secondAttribute="bottom" constant="1" id="0dM-4m-8uT"/>
+                                        <constraint firstItem="pcf-k5-w3d" firstAttribute="top" secondItem="Bx5-Uv-Eej" secondAttribute="bottom" constant="-1" id="0dM-4m-8uT"/>
                                         <constraint firstItem="pcf-k5-w3d" firstAttribute="leading" secondItem="37f-cq-3Eg" secondAttribute="leadingMargin" id="2OI-oD-mTN"/>
                                         <constraint firstItem="Bx5-Uv-Eej" firstAttribute="leading" secondItem="37f-cq-3Eg" secondAttribute="leadingMargin" id="4ea-fz-x0H"/>
                                         <constraint firstItem="3cU-GU-0tx" firstAttribute="leading" secondItem="pg4-lO-b3s" secondAttribute="trailing" constant="14" id="5eF-z6-c07"/>
                                         <constraint firstItem="Bx5-Uv-Eej" firstAttribute="top" secondItem="Fow-Ik-iAx" secondAttribute="bottom" constant="2" id="6nB-Y2-n34"/>
                                         <constraint firstItem="Fow-Ik-iAx" firstAttribute="top" secondItem="37f-cq-3Eg" secondAttribute="topMargin" constant="-7" id="D2T-cu-x25"/>
-                                        <constraint firstItem="pcf-k5-w3d" firstAttribute="bottom" secondItem="37f-cq-3Eg" secondAttribute="bottomMargin" id="Lhh-FA-NBW"/>
+                                        <constraint firstItem="pcf-k5-w3d" firstAttribute="bottom" secondItem="37f-cq-3Eg" secondAttribute="bottomMargin" constant="8" id="Lhh-FA-NBW"/>
                                         <constraint firstAttribute="centerY" secondItem="pg4-lO-b3s" secondAttribute="centerY" constant="-3" id="Xt2-Es-1BJ"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="3cU-GU-0tx" secondAttribute="trailing" constant="9" id="b2c-xQ-dVi"/>
                                         <constraint firstAttribute="centerY" secondItem="3cU-GU-0tx" secondAttribute="centerY" constant="-0.5" id="eL5-f7-MDe"/>
