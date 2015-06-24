@@ -1,5 +1,11 @@
 DevLog
 
+Acknowledgements:
+
+http://www.alessioatzeni.com/meteocons/ - Weather Icons
+
+-
+
 The app pulls data from a single source. It should handle background updates so that relevant data is present whenever the user opens the app, even if they're in a mobile dead zone. I don't think there's a need to use Core Data since the data structure provided is pretty simple and uninteractive.
 
 I'm not experience with AutoLayout or Storyboards, but since they're requirements we'll take a stab at it. A Master-Detail template seems like the best way to get started rather than building one from scratch. We can innovate in the 'detail' view.
@@ -27,3 +33,7 @@ Tomorrow I'll do what's left of the filtering, then..
 - Get around to actually displaying some data in the detailVC
 
 -
+
+Finished prettying up the table view cells and did enough figuring out icons from the list given + what I could see in the feed.
+
+It seems pretty much necessary to me to have a hardcoded set of icons for things like this. 
