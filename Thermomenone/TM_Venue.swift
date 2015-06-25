@@ -90,6 +90,14 @@ extension TM_Venue {
                     return
                 }
             }
+
+            if let v: String = manifestValueForKey(countryDictionary, key: TM_CountryKey.countryID) {
+                if self.countryID == nil {
+                    self.countryID = v
+                } else if self.countryID != v {
+                    return
+                }
+            }
         }
 
         if let v: NSNumber = manifestValueForKey(venueDictionary, key: TM_Venue_ManifestKey.weatherLastUpdated) {
