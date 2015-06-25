@@ -82,7 +82,7 @@
     XCTAssert([riverVenue.venueID isEqualToString:@"97"]);
     XCTAssert([riverVenue.country isEqualToString:@"Australia"]);
     XCTAssert([riverVenue.weatherCondition isEqualToString:@"Partly Cloudy"]);
-    XCTAssert([riverVenue.weatherConditionIcon isEqualToString:@"partlycloudy"]);
+    XCTAssert([riverVenue.weatherConditionIcon isEqualToString:@"partlycloudy_day"]);
     XCTAssert([riverVenue.weatherWindDirection isEqualToString:@"ESE"]);
     XCTAssert(riverVenue.weatherWindSpeed.integerValue == 17);
     XCTAssert(riverVenue.weatherFeelsLike.integerValue == 34);
