@@ -62,6 +62,8 @@
     self.searchController.searchBar.delegate = self;
     self.tableView.tableHeaderView = self.searchController.searchBar;
     self.definesPresentationContext = YES;
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refreshControlPulled:) forControlEvents:UIControlEventValueChanged];
     
     if (!self.dateFormatter) {
         self.dateFormatter = [[NSDateFormatter alloc] init];
@@ -69,6 +71,11 @@
     }
     
     self.dataSource = [[TM_WeatherListingDataSource alloc] initWithDelegate:self];
+    [self.dataSource updateListings:YES];
+    
+}
+
+- (void)refreshControlPulled:(UIRefreshControl *)sender {
     [self.dataSource updateListings:YES];
 }
 
@@ -152,8 +159,16 @@
 
 #pragma mark - TMWeatherListingDataSourceDelegate Methods
 
+- (void)weatherListingDataSourceWillFetchData:(TM_WeatherListingDataSource *)dataSource {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.refreshControl beginRefreshing];
+    });
+}
+
+
 - (void)weatherListingDataSource:(TM_WeatherListingDataSource *)dataSource didUpdateSearchResult:(NSMutableArray *)result {
     dispatch_async(dispatch_get_main_queue(), ^{
+        [self.refreshControl endRefreshing];
         self.objects = result;
         NSString *dateString = [[self.dateFormatter stringFromDate:self.dataSource.lastUpdated] lowercaseString];
         self.navItem.title = [NSString stringWithFormat:@"Last Updated: %@", dateString];
@@ -163,6 +178,7 @@
 
 - (void)weatherListingDataSource:(TM_WeatherListingDataSource *)dataSource didFailToUpdateDataWithError:(NSError *)error {
     dispatch_async(dispatch_get_main_queue(), ^{
+        [self.refreshControl endRefreshing];
         if (!self.alert) {
             self.alert = [[UIAlertView alloc] initWithTitle:@"Something went wrong."
                                                     message:@"We weren't able to update the weather for you. Please try again later."

@@ -71,7 +71,10 @@ static NSString * const kCountryKey = @"_country";
             [self updateSearchResults];
             self.downloadTask = nil;
         }];
-    
+        
+        if ([self.delegate respondsToSelector:@selector(weatherListingDataSourceWillFetchData:)]) {
+            [self.delegate weatherListingDataSourceWillFetchData:self];
+        }
         [self.downloadTask resume];
     }
 }

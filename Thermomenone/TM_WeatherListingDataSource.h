@@ -30,4 +30,6 @@
 - (void)weatherListingDataSource:(TM_WeatherListingDataSource *)dataSource didUpdateSearchResult:(NSArray *)result;
 - (void)weatherListingDataSource:(TM_WeatherListingDataSource *)dataSource didFailToUpdateDataWithError:(NSError *)error;
 
+@optional
+- (void)weatherListingDataSourceWillFetchData:(TM_WeatherListingDataSource *)dataSource;
 @end
