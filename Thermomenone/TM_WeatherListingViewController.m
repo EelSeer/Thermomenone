@@ -167,7 +167,7 @@
         listingCell.weatherIconView.image = [UIImage imageNamed:venue.weatherConditionIcon];
     }
     
-    if ([venue.venueID isEqualToString:self.detailViewController.venue.venueID]) {
+    if ([venue.countryID isEqualToString:self.detailViewController.venue.countryID] && [venue.venueID isEqualToString:self.detailViewController.venue.venueID]) {
         [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
     }
 }
