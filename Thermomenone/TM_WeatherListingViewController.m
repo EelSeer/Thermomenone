@@ -86,6 +86,22 @@
     }
 }
 
+- (void)updateCurrentVenue {
+    if (self.detailViewController.venue) {
+        NSString *venueID = self.detailViewController.venue.venueID;
+        NSString *countryID = self.detailViewController.venue.countryID;
+        TM_Country *country = self.dataSource.countries[countryID];
+        if (country) {
+            TM_Venue *venue = country.venues[venueID];
+            if (venue) {
+                self.detailViewController.venue = venue;
+            }
+        }
+    } else {
+        self.detailViewController.venue = [self.objects firstObject];
+    }
+}
+
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -172,6 +188,7 @@
         self.objects = result;
         NSString *dateString = [[self.dateFormatter stringFromDate:self.dataSource.lastUpdated] lowercaseString];
         self.navItem.title = [NSString stringWithFormat:@"Last Updated: %@", dateString];
+        [self updateCurrentVenue];
         [self.tableView reloadData];
     });
 }
