@@ -126,10 +126,10 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="30°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNL-gH-ATE">
-                                <rect key="frame" x="94" y="408" width="26" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Updated:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0av-Oz-yXI">
+                                <rect key="frame" x="16" y="571" width="109" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="humidity" translatesAutoresizingMaskIntoConstraints="NO" id="HVI-YI-O84">
@@ -155,10 +155,10 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Updated:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0av-Oz-yXI">
-                                <rect key="frame" x="16" y="571" width="109" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="30°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNL-gH-ATE">
+                                <rect key="frame" x="94" y="408" width="26" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -170,7 +170,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="1Mo-KC-zig" secondAttribute="trailing" constant="345" id="4R2-aU-6TL"/>
                             <constraint firstItem="tvU-7J-xAQ" firstAttribute="centerY" secondItem="ejm-ZK-DoS" secondAttribute="centerY" constant="-0.5" id="6cg-VI-NI9"/>
                             <constraint firstItem="HVI-YI-O84" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" id="6ka-Da-MZ2"/>
-                            <constraint firstItem="wNL-gH-ATE" firstAttribute="leading" secondItem="sb7-0s-FTE" secondAttribute="trailing" constant="8" id="7N2-8H-uJQ"/>
+                            <constraint firstItem="wNL-gH-ATE" firstAttribute="leading" secondItem="sb7-0s-FTE" secondAttribute="trailing" constant="8" id="7N2-8H-uJQ">
+                                <variation key="heightClass=compact" constant="-15"/>
+                            </constraint>
                             <constraint firstItem="0av-Oz-yXI" firstAttribute="top" secondItem="HVI-YI-O84" secondAttribute="bottom" constant="8" id="8be-ep-OHR"/>
                             <constraint firstItem="1Mo-KC-zig" firstAttribute="top" secondItem="sb7-0s-FTE" secondAttribute="bottom" constant="8" id="8bf-tx-zG5"/>
                             <constraint firstItem="Wgn-A1-mlv" firstAttribute="centerY" secondItem="HVI-YI-O84" secondAttribute="centerY" constant="-0.5" id="AKI-EY-PT4"/>
@@ -188,6 +190,7 @@
                             <constraint firstItem="GAO-Cl-Wes" firstAttribute="top" secondItem="0av-Oz-yXI" secondAttribute="bottom" constant="8" id="Y5M-9v-Nc7"/>
                             <constraint firstItem="sb7-0s-FTE" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" id="Zi0-8S-LPO"/>
                             <constraint firstItem="Wgn-A1-mlv" firstAttribute="leading" secondItem="HVI-YI-O84" secondAttribute="trailing" constant="14" id="ZnK-mn-MYl"/>
+                            <constraint firstItem="wNL-gH-ATE" firstAttribute="centerY" secondItem="sb7-0s-FTE" secondAttribute="centerY" constant="-18.5" id="abx-h3-EF6"/>
                             <constraint firstItem="Wgn-A1-mlv" firstAttribute="leading" secondItem="HVI-YI-O84" secondAttribute="trailing" constant="8" id="bcS-YF-Sgo"/>
                             <constraint firstItem="tvU-7J-xAQ" firstAttribute="leading" secondItem="ejm-ZK-DoS" secondAttribute="trailing" constant="11" id="cJn-Cr-1qY"/>
                             <constraint firstItem="HVI-YI-O84" firstAttribute="top" secondItem="1Mo-KC-zig" secondAttribute="bottom" constant="8" id="cuQ-do-p4n"/>
@@ -197,7 +200,6 @@
                             <constraint firstItem="sb7-0s-FTE" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="8" id="jC7-VI-JA3"/>
                             <constraint firstItem="1Mo-KC-zig" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" id="p7k-bs-EGk"/>
                             <constraint firstItem="1Mo-KC-zig" firstAttribute="centerY" secondItem="mlq-cj-eTf" secondAttribute="centerY" constant="0.5" id="poM-8Q-Jor"/>
-                            <constraint firstItem="wNL-gH-ATE" firstAttribute="centerY" secondItem="sb7-0s-FTE" secondAttribute="centerY" constant="-18.5" id="r3n-3P-dpr"/>
                             <constraint firstItem="ejm-ZK-DoS" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" id="szZ-ah-deT"/>
                             <constraint firstItem="9od-ZY-RiY" firstAttribute="top" secondItem="wNL-gH-ATE" secondAttribute="bottom" constant="13" id="tyM-HV-6co"/>
                             <constraint firstItem="HVI-YI-O84" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" id="uLg-DG-pUn"/>
@@ -209,7 +211,7 @@
                                 <exclude reference="1uX-xE-b23"/>
                                 <exclude reference="UQ1-sf-lHJ"/>
                                 <exclude reference="7N2-8H-uJQ"/>
-                                <exclude reference="r3n-3P-dpr"/>
+                                <exclude reference="abx-h3-EF6"/>
                                 <exclude reference="His-do-PQp"/>
                                 <exclude reference="ebH-90-ShW"/>
                                 <exclude reference="uLg-DG-pUn"/>
@@ -236,7 +238,7 @@
                                 <exclude reference="3iS-ua-XWU"/>
                                 <include reference="7N2-8H-uJQ"/>
                                 <exclude reference="Eku-8T-ESE"/>
-                                <include reference="r3n-3P-dpr"/>
+                                <include reference="abx-h3-EF6"/>
                                 <exclude reference="B4w-3E-DHz"/>
                                 <include reference="His-do-PQp"/>
                                 <include reference="ebH-90-ShW"/>
