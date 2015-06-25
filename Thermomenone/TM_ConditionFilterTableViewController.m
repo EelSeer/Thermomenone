@@ -44,7 +44,7 @@
     if (indexPath.row == 0) {
         cell.textLabel.text = @"All";
     } else {
-        cell.textLabel.text = self.conditions[indexPath.row];
+        cell.textLabel.text = self.conditions[indexPath.row-1];
     }
 }
 
