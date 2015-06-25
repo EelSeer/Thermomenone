@@ -63,7 +63,11 @@ typedef NS_ENUM(NSUInteger, TM_WeatherDetailSpeedType) {
         [self configureConditionView];
         [self configureWindSpeedViews];
         [self configureHumidityView];
-        self.lastUpdatedLabel.text = [NSString stringWithFormat:@"Last Updated: %@", [self.dateFormatter stringFromDate:self.venue.lastUpdated]];
+        if (self.venue.lastUpdated) {
+            self.lastUpdatedLabel.text = [NSString stringWithFormat:@"Last Updated: %@", [self.dateFormatter stringFromDate:self.venue.lastUpdated]];
+        } else {
+            self.lastUpdatedLabel.text = @"Unknown";
+        }
     } else {
         self.temperatureIsLabel.text = @"";
         self.temperatureFeelsLikeLabel.text = @"";
@@ -107,30 +111,35 @@ typedef NS_ENUM(NSUInteger, TM_WeatherDetailSpeedType) {
     if (self.venue.weatherCondition) {
         self.conditionLabel.text = [self.venue.weatherCondition uppercaseString];
     } else {
-        self.conditionLabel.text = @"?";
+        self.conditionLabel.text = @"Unknown";
     }
 }
 
 - (void)configureWindSpeedViews {
-    double windspeed = [self.venue.weatherWindSpeed doubleValue];
-    NSString *windMeasurementString = @"k/ph";
-    if (!windspeed) {
-        self.windLabel.text = @"STILL";
-    } else {
-        switch (self.speedType) {
-            case TM_WeatherDetailSpeedMiles:
-                windspeed = [TM_Utilities kilometresToMiles:windspeed];
-                windMeasurementString = @"m/ph";
-                break;
-            case TM_WeatherDetailSpeedKnots:
-                windspeed = [TM_Utilities kilometresToKnots:windspeed];
-                windMeasurementString = @"knots";
-                break;
-            default:
-                break;
+    if (self.venue.weatherWindSpeed) {
+        double windspeed = [self.venue.weatherWindSpeed doubleValue];
+        NSString *windMeasurementString = @"k/ph";
+        if (!windspeed) {
+            self.windLabel.text = @"Still";
+        } else {
+            switch (self.speedType) {
+                case TM_WeatherDetailSpeedMiles:
+                    windspeed = [TM_Utilities kilometresToMiles:windspeed];
+                    windMeasurementString = @"m/ph";
+                    break;
+                case TM_WeatherDetailSpeedKnots:
+                    windspeed = [TM_Utilities kilometresToKnots:windspeed];
+                    windMeasurementString = @"knots";
+                    break;
+                default:
+                    break;
+            }
+            self.windLabel.text = [NSString stringWithFormat:@"%@ %.1f KPH", self.venue.weatherWindDirection, windspeed];
         }
-        self.windLabel.text = [NSString stringWithFormat:@"%@ %.1f KPH", self.venue.weatherWindDirection, windspeed];
+    } else {
+        self.windLabel.text = @"Unknown";
     }
+    
 }
 
 - (void)configureHumidityView {
@@ -140,6 +149,8 @@ typedef NS_ENUM(NSUInteger, TM_WeatherDetailSpeedType) {
         } else {
             self.humidityLabel.text = @"0%%";
         }
+    } else {
+        self.humidityLabel.text = @"Unknown";
     }
 }
 
