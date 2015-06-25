@@ -119,8 +119,8 @@ extension TM_Venue {
         
         if let v: String = manifestValueForKey(venueDictionary, key: TM_Venue_ManifestKey.weatherConditionIcon) {
             switch v {
-            case "storm":
-                self.weatherConditionIcon = "tstorm"
+            case "tstorm", "tstorms":
+                self.weatherConditionIcon = "storm"
             case "clear", "partlycloudy":
                 self.weatherConditionIcon = v+"_day"
             default:
