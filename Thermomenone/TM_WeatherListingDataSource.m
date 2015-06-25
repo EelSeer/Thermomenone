@@ -149,7 +149,12 @@ static NSString * const kCountryKey = @"_country";
                 return obj1.weatherTemp.integerValue <= obj2.weatherTemp.integerValue;
                 break;
             case TM_ListingSortTypeLastUpdated:
-                return [obj1.lastUpdated compare:obj2.lastUpdated];
+                if (obj2.lastUpdated && !obj1.lastUpdated) {
+                    return NSOrderedDescending;
+                } else if (obj1.lastUpdated && !obj2.lastUpdated) {
+                    return NSOrderedAscending;
+                }
+                return [obj2.lastUpdated compare:obj1.lastUpdated];
                 break;
         }
     }];

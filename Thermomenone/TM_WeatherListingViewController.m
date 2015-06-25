@@ -67,7 +67,7 @@
     
     if (!self.dateFormatter) {
         self.dateFormatter = [[NSDateFormatter alloc] init];
-        self.dateFormatter.dateFormat = @"h:mma";
+        self.dateFormatter.dateFormat = @"d/M/yyyy h:mma";
     }
     
     self.dataSource = [[TM_WeatherListingDataSource alloc] initWithDelegate:self];
@@ -161,6 +161,8 @@
     if (venue.lastUpdated) {
         NSString *dateString = [self.dateFormatter stringFromDate:venue.lastUpdated];
         listingCell.lastUpdatedLabel.text = [NSString stringWithFormat:@"Last Updated: %@", dateString];
+    } else {
+        listingCell.lastUpdatedLabel.text = @"";
     }
     
     if (venue.weatherConditionIcon) {
