@@ -37,3 +37,29 @@ Tomorrow I'll do what's left of the filtering, then..
 Finished prettying up the table view cells and did enough figuring out icons from the list given + what I could see in the feed.
 
 It seems pretty much necessary to me to have a hardcoded set of icons for things like this. 
+
+-
+
+Ok, I think I hit all the requirements and it only took forever.
+
+There's no terrible interesting UI stuff, though. It's pretty much a bog-standard table-shows-data app. I'm gonna play with the app for a while and make sure what I've got hangs together before trying to apply some design. I'd like to, let's see...
+
+- Include controls to select metrics (kmh/mph, celsius/fahrenheit/etc. some of the code is even there!)
+
+- Add some colour and tweak the fonts. I'm thinking colours based on temperature would be bestest.
+
+- Animations when the detail view changes.
+
+- Apply a transform to the wind compass so it points in the correct direction.
+
+- Store user preferences, e.g. last search, last venue. A bit of persistence would be nice.
+
+- It's probably pretty silly to store country_ID and country_name in TM_Venue like I did.
+
+- Add tests around filtering and sorting.
+
+- Use the default storyboard size. I think my constraints do hit every possible device, but it is giving a few warnings in interface builder.
+
+
+
+
