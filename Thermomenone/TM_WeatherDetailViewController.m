@@ -23,7 +23,7 @@ typedef NS_ENUM(NSUInteger, TM_WeatherDetailSpeedType) {
 @interface TM_WeatherDetailViewController ()
 @property (nonatomic, assign) TM_WeatherDetailDegreesType degreeType;
 @property (nonatomic, assign) TM_WeatherDetailSpeedType speedType;
-
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
 @end
 
 @implementation TM_WeatherDetailViewController
@@ -37,6 +37,14 @@ typedef NS_ENUM(NSUInteger, TM_WeatherDetailSpeedType) {
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSDateFormatter *)dateFormatter {
+    if (!_dateFormatter) {
+        _dateFormatter = [[NSDateFormatter alloc] init];
+        _dateFormatter.dateFormat = @"h:mmaa";
+    }
+    return _dateFormatter;
 }
 
 #pragma mark - Managing the detail item
@@ -55,12 +63,14 @@ typedef NS_ENUM(NSUInteger, TM_WeatherDetailSpeedType) {
         [self configureConditionView];
         [self configureWindSpeedViews];
         [self configureHumidityView];
+        self.lastUpdatedLabel.text = [NSString stringWithFormat:@"Last Updated: %@", [self.dateFormatter stringFromDate:self.venue.lastUpdated]];
     } else {
         self.temperatureIsLabel.text = @"";
         self.temperatureFeelsLikeLabel.text = @"";
         self.windLabel.text = @"";
         self.conditionLabel.text = @"";
         self.humidityLabel.text = @"";
+        self.lastUpdatedLabel.text = @"";
     }
 }
 
