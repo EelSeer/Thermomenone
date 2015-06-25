@@ -52,24 +52,26 @@ static NSString * const kCountryKey = @"_country";
     if (!self.downloadTask) {
         NSURLSession *session = [NSURLSession sharedSession];
         NSURL *endpoint = [NSURL URLWithString:kWeatherListingEndPoint];
+        __weak __typeof(self) wSelf = self;
         self.downloadTask = [session dataTaskWithURL:endpoint completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             if (error) {
-                if (self.delegate) {
-                    [self.delegate weatherListingDataSource:self didFailToUpdateDataWithError:error];
+                if (wSelf.delegate) {
+                    [wSelf.delegate weatherListingDataSource:self didFailToUpdateDataWithError:error];
                 }
+                wSelf.downloadTask = nil;
                 return;
             }
             
             NSError *jsonError = nil;
             NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonError];
             if (!dictionary || jsonError) {
-                [self.delegate weatherListingDataSource:self didFailToUpdateDataWithError:error];
+                [wSelf.delegate weatherListingDataSource:self didFailToUpdateDataWithError:error];
             }
             
-            self.countries = [self parseVenues:dictionary[kDataKey]];
-            self.lastUpdated = [NSDate date];
-            [self updateSearchResults];
-            self.downloadTask = nil;
+            wSelf.countries = [wSelf parseVenues:dictionary[kDataKey]];
+            wSelf.lastUpdated = [NSDate date];
+            [wSelf updateSearchResults];
+            wSelf.downloadTask = nil;
         }];
         
         if ([self.delegate respondsToSelector:@selector(weatherListingDataSourceWillFetchData:)]) {

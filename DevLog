@@ -42,11 +42,11 @@ It seems pretty much necessary to me to have a hardcoded set of icons for things
 
 Ok, I think I hit all the requirements and it only took forever.
 
-There's no terrible interesting UI stuff, though. It's pretty much a bog-standard table-shows-data app. I'm gonna play with the app for a while and make sure what I've got hangs together before trying to apply some design. I'd like to, let's see...
+There's no terrible interesting UI stuff, though. It's pretty much a bog-standard table-shows-data app. I don't really use storyboard so just doing ordinary stuff took a fair whack of time to get right. I'm gonna play with the app for a while and make sure what I've got hangs together before trying to apply some design. I'd like to, let's see...
 
 - Include controls to select metrics (kmh/mph, celsius/fahrenheit/etc. some of the code is even there!)
 
-- Add some colour and tweak the fonts. I'm thinking colours based on temperature would be bestest.
+- Add some backgrounds, or background colour, and tweak the fonts. I'm thinking colours based on temperature would be bestest.
 
 - Animations when the detail view changes.
 
@@ -60,6 +60,14 @@ There's no terrible interesting UI stuff, though. It's pretty much a bog-standar
 
 - Use the default storyboard size. I think my constraints do hit every possible device, but it is giving a few warnings in interface builder.
 
+- Using 'clear' as the default weather icon is a bit suss, I think a question mark would be better.
+
+- Pop-Up Picker Views instead of table views for sort filtering.
+
+- Better failure checking when fetching data (app waits some time before reporting back to user.)
 
 
+-
+
+Didn't handle network failure properly (wasn't removing request reference.)
 
