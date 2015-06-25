@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *windLabel;
 @property (weak, nonatomic) IBOutlet UILabel *humidityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lastUpdatedLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *conditionImageView;
 //@property (weak, nonatomic) IBOutlet UIButton *temperatureMeasurementButton;
 //@property (weak, nonatomic) IBOutlet UIButton *windSpeedMeasurementButton;
 

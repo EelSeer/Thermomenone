@@ -113,6 +113,12 @@ typedef NS_ENUM(NSUInteger, TM_WeatherDetailSpeedType) {
     } else {
         self.conditionLabel.text = @"Unknown";
     }
+    
+    if (self.venue.weatherConditionIcon) {
+        self.conditionImageView.image = [UIImage imageNamed:self.venue.weatherConditionIcon];
+    } else {
+        self.conditionImageView.image = [UIImage imageNamed:@"sunny"];
+    }
 }
 
 - (void)configureWindSpeedViews {

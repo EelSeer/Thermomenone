@@ -296,6 +296,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
+                        <outlet property="conditionImageView" destination="1Mo-KC-zig" id="WYk-UM-BDg"/>
                         <outlet property="conditionLabel" destination="mlq-cj-eTf" id="fqD-qT-S5q"/>
                         <outlet property="humidityLabel" destination="Wgn-A1-mlv" id="qCI-Sv-DVk"/>
                         <outlet property="lastUpdatedLabel" destination="0av-Oz-yXI" id="0Qh-eF-Lqe"/>
