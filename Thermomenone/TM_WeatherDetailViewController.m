@@ -128,19 +128,19 @@ typedef NS_ENUM(NSUInteger, TM_WeatherDetailSpeedType) {
         if (!windspeed) {
             self.windLabel.text = @"Still";
         } else {
-            switch (self.speedType) {
-                case TM_WeatherDetailSpeedMiles:
-                    windspeed = [TM_Utilities kilometresToMiles:windspeed];
-                    windMeasurementString = @"m/ph";
-                    break;
-                case TM_WeatherDetailSpeedKnots:
-                    windspeed = [TM_Utilities kilometresToKnots:windspeed];
-                    windMeasurementString = @"knots";
-                    break;
-                default:
-                    break;
-            }
-            self.windLabel.text = [NSString stringWithFormat:@"%@ %.1f KPH", self.venue.weatherWindDirection, windspeed];
+//            switch (self.speedType) {
+//                case TM_WeatherDetailSpeedMiles:
+//                    windspeed = [TM_Utilities kilometresToMiles:windspeed];
+//                    windMeasurementString = @"m/ph";
+//                    break;
+//                case TM_WeatherDetailSpeedKnots:
+//                    windspeed = [TM_Utilities kilometresToKnots:windspeed];
+//                    windMeasurementString = @"knots";
+//                    break;
+//                default:
+//                    break;
+//            }
+            self.windLabel.text = [NSString stringWithFormat:@"%@ %.1f %@", self.venue.weatherWindDirection, windspeed, windMeasurementString];
         }
     } else {
         self.windLabel.text = @"Unknown";

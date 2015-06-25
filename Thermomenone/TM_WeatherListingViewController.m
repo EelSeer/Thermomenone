@@ -148,7 +148,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    TM_Venue *venue = self.objects[indexPath.row];
+    TM_Venue *venue = nil;
     if (!self.searchController.active) {
         venue = self.objects[indexPath.row];
     } else {
