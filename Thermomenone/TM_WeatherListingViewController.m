@@ -25,6 +25,7 @@
 @property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, strong) UISearchController *searchController;
 
+@property (nonatomic, strong) NSDateFormatter *shortDateFormatter;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
 @property (nonatomic, strong) UIAlertController *sortAlertController;
@@ -68,6 +69,11 @@
     if (!self.dateFormatter) {
         self.dateFormatter = [[NSDateFormatter alloc] init];
         self.dateFormatter.dateFormat = @"d/M/yyyy h:mma";
+    }
+    
+    if (!self.shortDateFormatter) {
+        self.shortDateFormatter = [[NSDateFormatter alloc] init];
+        self.shortDateFormatter.dateFormat = @"h:mma";
     }
     
     self.dataSource = [[TM_WeatherListingDataSource alloc] initWithDelegate:self];
@@ -192,8 +198,9 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.refreshControl endRefreshing];
         self.objects = result;
-        NSString *dateString = [[self.dateFormatter stringFromDate:self.dataSource.lastUpdated] lowercaseString];
-        self.navItem.title = [NSString stringWithFormat:@"Last Updated: %@", dateString];
+        NSString *dateString = [[self.shortDateFormatter stringFromDate:self.dataSource.lastUpdated] lowercaseString];
+        self.resultsLabel.text = [NSString stringWithFormat:@"%ld Results", (long)[self.objects count]];
+        self.lastUpdatedLabel.text = [NSString stringWithFormat:@"Last Updated: %@", dateString];
         [self updateCurrentVenue];
         [self.tableView reloadData];
     });

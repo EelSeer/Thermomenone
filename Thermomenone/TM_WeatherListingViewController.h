@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) TM_WeatherDetailViewController *detailViewController;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navItem;
-
+@property (weak, nonatomic) IBOutlet UILabel *lastUpdatedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *resultsLabel;
 @end
 
