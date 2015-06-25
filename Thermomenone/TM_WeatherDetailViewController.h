@@ -12,13 +12,13 @@
 
 @property (strong, nonatomic) TM_Venue *venue;
 
-@property (weak, nonatomic) IBOutlet UILabel *temperatureIsLabel;
-@property (weak, nonatomic) IBOutlet UIButton *temperatureMeasurementButton;
-@property (weak, nonatomic) IBOutlet UILabel *temperatureFeelsLikeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *conditionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *windLabel;
-@property (weak, nonatomic) IBOutlet UIButton *windSpeedMeasurementButton;
-@property (weak, nonatomic) IBOutlet UILabel *humidityLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *temperatureIsLabel;
+//@property (weak, nonatomic) IBOutlet UIButton *temperatureMeasurementButton;
+//@property (weak, nonatomic) IBOutlet UILabel *temperatureFeelsLikeLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *conditionLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *windLabel;
+//@property (weak, nonatomic) IBOutlet UIButton *windSpeedMeasurementButton;
+//@property (weak, nonatomic) IBOutlet UILabel *humidityLabel;
 
 
 - (IBAction)didTapTemperatureMeasurementButton:(id)sender;
