@@ -50,83 +50,87 @@ typedef NS_ENUM(NSUInteger, TM_WeatherDetailSpeedType) {
 
 - (void)configureView {
     if (self.venue) {
+        self.navigationItem.title = self.venue.venueName;
         [self configureTemperatureViews];
         [self configureConditionView];
         [self configureWindSpeedViews];
         [self configureHumidityView];
+    } else {
+        self.temperatureIsLabel.text = @"";
+        self.temperatureFeelsLikeLabel.text = @"";
+        self.windLabel.text = @"";
+        self.conditionLabel.text = @"";
+        self.humidityLabel.text = @"";
     }
 }
 
 - (void)configureTemperatureViews {
-//    double degrees = [self.venue.weatherTemp doubleValue];
-//    NSString *degreeString = @"Celsius";
-//    double feelsLikeDegrees = [self.venue.weatherFeelsLike doubleValue];
-//    
-//    switch (self.degreeType) {
-//        case TM_WeatherDetailDegreesFarhenheit:
-//            degrees = [TM_Utilities celsiusToFahrenheit:degrees];
-//            feelsLikeDegrees = [TM_Utilities celsiusToFahrenheit:feelsLikeDegrees];
-//            degreeString = @"Fahrenheit";
-//            break;
-//        case TM_WeatherDetailDegreesKelvin:
-//            degrees = [TM_Utilities celsiusToKelvin:degrees];
-//            feelsLikeDegrees = [TM_Utilities celsiusToKelvin:feelsLikeDegrees];
-//            degreeString = @"Kelvin";
-//            break;
-//        default:
-//            break;
-//    }
-//    self.temperatureIsLabel.text = [NSString stringWithFormat:@"IT'S %.1f DEGREES", degrees];
-//    [self.temperatureMeasurementButton setTitle:degreeString forState:UIControlStateNormal];
-//    
-//    if (degrees == feelsLikeDegrees) {
-//        self.temperatureFeelsLikeLabel.text = @"THE THERMOMETER SAID SO";
-//    } else {
-//        self.temperatureFeelsLikeLabel.text = [NSString stringWithFormat:@"BUT IT FEELS LIKE %.1f DEGREES.\n SCIENCE IS WRONG AGAIN.", degrees];
-//    }
+    if (self.venue.weatherTemp) {
+        double degrees = [self.venue.weatherTemp doubleValue];
+        double feelsLikeDegrees = [self.venue.weatherFeelsLike doubleValue];
+        
+        NSString *tempType = @"C";
+        switch (self.degreeType) {
+            case TM_WeatherDetailDegreesFarhenheit:
+                degrees = [TM_Utilities celsiusToFahrenheit:degrees];
+                feelsLikeDegrees = [TM_Utilities celsiusToFahrenheit:feelsLikeDegrees];
+                tempType = @"F";
+                break;
+            case TM_WeatherDetailDegreesKelvin:
+                degrees = [TM_Utilities celsiusToKelvin:degrees];
+                feelsLikeDegrees = [TM_Utilities celsiusToKelvin:feelsLikeDegrees];
+                tempType = @"K";
+                break;
+            default:
+                break;
+        }
+        
+        self.temperatureIsLabel.text = [NSString stringWithFormat:@"TEMP %.1f°%@", degrees, tempType];
+        self.temperatureFeelsLikeLabel.text = [NSString stringWithFormat:@"FEELS %.1f°%@", feelsLikeDegrees, tempType];
+    } else {
+        self.temperatureIsLabel.text = @"Unknown";
+        self.temperatureFeelsLikeLabel.text = @"";
+    }
 }
 
 - (void)configureConditionView {
-//    if (self.venue.weatherCondition) {
-//        self.conditionLabel.text = [NSString stringWithFormat:@"IT'S A %@ DAY IN %@", [self.venue.weatherCondition uppercaseString], self.venue.venueName];
-//    } else {
-//        self.conditionLabel.text = [NSString stringWithFormat:@"I DUNNO WHAT KIND OF DAY IT IS IN %@", self.venue.venueName];
-//    }
+    if (self.venue.weatherCondition) {
+        self.conditionLabel.text = [self.venue.weatherCondition uppercaseString];
+    } else {
+        self.conditionLabel.text = @"?";
+    }
 }
 
 - (void)configureWindSpeedViews {
-//    double windspeed = [self.venue.weatherWindSpeed doubleValue];
-//    NSString *windMeasurementString = @"k/ph";
-//    if (!windspeed) {
-//        self.windLabel.text = @"THE WIND IS YET STILL";
-//        self.windSpeedMeasurementButton.hidden = YES;
-//    } else {
-//        switch (self.speedType) {
-//            case TM_WeatherDetailSpeedMiles:
-//                windspeed = [TM_Utilities kilometresToMiles:windspeed];
-//                windMeasurementString = @"m/ph";
-//                break;
-//            case TM_WeatherDetailSpeedKnots:
-//                windspeed = [TM_Utilities kilometresToKnots:windspeed];
-//                windMeasurementString = @"knots";
-//                break;
-//            default:
-//                break;
-//        }
-//        self.windSpeedMeasurementButton.hidden = NO;
-//        self.windLabel.text = [NSString stringWithFormat:@"THE WIND IS GOING %@ AT %.1f", self.venue.weatherWindDirection, windspeed];
-//        [self.windSpeedMeasurementButton setTitle:windMeasurementString forState:UIControlStateNormal];
-//    }
+    double windspeed = [self.venue.weatherWindSpeed doubleValue];
+    NSString *windMeasurementString = @"k/ph";
+    if (!windspeed) {
+        self.windLabel.text = @"STILL";
+    } else {
+        switch (self.speedType) {
+            case TM_WeatherDetailSpeedMiles:
+                windspeed = [TM_Utilities kilometresToMiles:windspeed];
+                windMeasurementString = @"m/ph";
+                break;
+            case TM_WeatherDetailSpeedKnots:
+                windspeed = [TM_Utilities kilometresToKnots:windspeed];
+                windMeasurementString = @"knots";
+                break;
+            default:
+                break;
+        }
+        self.windLabel.text = [NSString stringWithFormat:@"%@ %.1f KPH", self.venue.weatherWindDirection, windspeed];
+    }
 }
 
 - (void)configureHumidityView {
-//    if (self.venue.weatherHumidity) {
-//        if ([self.venue.weatherHumidity integerValue]) {
-//            self.humidityLabel.text = [NSString stringWithFormat:@"THE AIR IS %.1f PERCENT WATER", self.venue.weatherHumidity.doubleValue];
-//        } else {
-//            self.humidityLabel.text = @"IT'S NOT HUMID";
-//        }
-//    }
+    if (self.venue.weatherHumidity) {
+        if ([self.venue.weatherHumidity integerValue]) {
+            self.humidityLabel.text = [NSString stringWithFormat:@"%.1f%%", [self.venue.weatherHumidity doubleValue]];
+        } else {
+            self.humidityLabel.text = @"0%%";
+        }
+    }
 }
 
 - (IBAction)didTapTemperatureMeasurementButton:(id)sender {
