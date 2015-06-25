@@ -166,6 +166,10 @@
     if (venue.weatherConditionIcon) {
         listingCell.weatherIconView.image = [UIImage imageNamed:venue.weatherConditionIcon];
     }
+    
+    if ([venue.venueID isEqualToString:self.detailViewController.venue.venueID]) {
+        [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+    }
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
