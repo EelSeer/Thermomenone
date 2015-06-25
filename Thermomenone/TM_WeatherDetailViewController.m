@@ -42,7 +42,7 @@ typedef NS_ENUM(NSUInteger, TM_WeatherDetailSpeedType) {
 - (NSDateFormatter *)dateFormatter {
     if (!_dateFormatter) {
         _dateFormatter = [[NSDateFormatter alloc] init];
-        _dateFormatter.dateFormat = @"h:mmaa";
+        _dateFormatter.dateFormat = @"d/M/yyyy h:mma";
     }
     return _dateFormatter;
 }
